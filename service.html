@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechKnowGreen offers a wide range of sustainable services in Kenya, including heat pumps, water pumps, solar solutions, water purification, training, and consultation for renewable energy solutions.">
+    <meta name="keywords" content="TechKnowGreen, heat pumps, water pumps, solar solutions, water purification, training, consultation, renewable energy, Kenya, sustainable services">
+    <meta name="robots" content="index, follow">
+    <title>Our Services - TechKnowGreen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* Hero Section Styles */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 6vw, 48px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 3vw, 18px);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 0 10px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #077a9a, #055f7b);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Slideshow for Hero Images */
+        .hero-slides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide:nth-child(1) {
+            background-image: url('img/services-hero1.jpg');
+        }
+
+        .hero-slide:nth-child(2) {
+            background-image: url('img/services-hero2.jpg');
+        }
+
+        .hero-slide:nth-child(3) {
+            background-image: url('img/services-hero3.jpg');
+        }
+
+        /* General Section Styles */
+        .service-section {
+            padding: 60px 5%;
+            background: #f9fafb;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .service-section:nth-child(even) {
+            background: #fff;
+        }
+
+        .service-section .section-title {
+            font-size: clamp(28px, 5vw, 32px);
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .service-section .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card-content {
+            padding: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .service-card .duration {
+            font-size: 14px;
+            color: #0ebbee;
+            margin-bottom: 15px;
+        }
+
+        .service-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid #0ebbee;
+            color: #0ebbee;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .service-card a:hover {
+            background: #0ebbee;
+            color: #fff;
+        }
+
+        /* Request Service Form Section */
+        .request-service-form {
+            padding: 60px 5%;
+            background: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .request-service-form .section-title {
+            font-size: clamp(28px, 5vw, 32px);
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .request-service-form .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-container input:focus,
+        .form-container select:focus,
+        .form-container textarea:focus {
+            border-color: #0ebbee;
+            outline: none;
+        }
+
+        .form-container textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-container button {
+            padding: 12px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: linear-gradient(90deg, #077a9a, #055f7b);
+            transform: translateY(-2px);
+        }
+
+        .form-container .error {
+            color: #dc2626;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 60px 5%;
+            background: #f9fafb;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .why-choose .section-title {
+            font-size: clamp(28px, 5vw, 32px);
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .why-choose .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-card i {
+            font-size: 40px;
+            color: #0ebbee;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 60px 5%;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: #fff;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cta h2 {
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Back to Services Button */
+        .back-to-services {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                height: 60vh;
+            }
+            .hero-title {
+                font-size: 36px;
+            }
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            .service-grid,
+            .benefits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+            .hero-subtitle {
+                font-size: 14px;
+            }
+            .service-section,
+            .request-service-form,
+            .why-choose,
+            .cta {
+                padding: 40px 3%;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .service-card img {
+                height: 180px;
+            }
+            .form-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+            .hero-title {
+                font-size: 28px;
+            }
+            .hero-subtitle {
+                font-size: 13px;
+            }
+            .service-section,
+            .request-service-form,
+            .why-choose,
+            .cta {
+                padding: 30px 3%;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .service-card img {
+                height: 160px;
+            }
+            .service-card h3,
+            .benefit-card h3 {
+                font-size: 18px;
+            }
+            .service-card p,
+            .benefit-card p,
+            .service-card .duration {
+                font-size: 13px;
+            }
+            .btn-primary,
+            .service-card a,
+            .form-container button {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+            .form-container input,
+            .form-container select,
+            .form-container textarea {
+                font-size: 13px;
+            }
+        }
+
+        /* Accessibility */
+        .btn-primary:focus,
+        .service-card a:focus,
+        .form-container button:focus,
+        .form-container input:focus,
+        .form-container select:focus,
+        .form-container textarea:focus {
+            outline: 2px solid #0ebbee;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+            TECH<span style="color: #0ebbee;">KNOW</span>GREEN
+        </div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> Hotline: <a href="tel:+254707077709">(+254)707-077-709</a></span>
+                <span><i class="fas fa-envelope"></i> Email: <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></span>
+                <span><i class="fas fa-clock"></i> Mon-Fri: 8:30am-5pm</span>
+                <span><i class="fas fa-clock"></i> Sat: 8:30am-1pm</span>
+            </div>
+            <div class="social-icons">
+                <a href="https://facebook.com/techknowgreen" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/techknowgreen" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/techknowgreen" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/techknowgreen" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+254710220398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT US</a>
+                <div class="dropdown">
+                    <a href="service.html" class="nav-highlight">SERVICES</a>
+                    <div class="dropdown-content">
+                        <a href="service.html#heat-pumps">HEAT PUMPS</a>
+                        <a href="service.html#water-pumps">WATER PUMPS</a>
+                        <a href="service.html#solar-solutions">SOLAR SOLUTIONS</a>
+                        <a href="service.html#water-purification">WATER PURIFICATION</a>
+                        <a href="service.html#training">TRAINING</a>
+                        <a href="service.html#consultation">CONSULTATION</a>
+                    </div>
+                </div>
+                <a href="projects.html">PROJECTS</a>
+                <a href="shop.html">OUR SHOP</a>
+                <a href="news.html">NEWS</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search services..." aria-label="Search services">
+                <button class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle nav-highlight">SERVICES</a>
+            <div class="mobile-submenu">
+                <a href="service.html#heat-pumps">HEAT PUMPS</a>
+                <a href="service.html#water-pumps">WATER PUMPS</a>
+                <a href="service.html#solar-solutions">SOLAR SOLUTIONS</a>
+                <a href="service.html#water-purification">WATER PURIFICATION</a>
+                <a href="service.html#training">TRAINING</a>
+                <a href="service.html#consultation">CONSULTATION</a>
+            </div>
+        </div>
+        <a href="projects.html">PROJECTS</a>
+        <a href="shop.html">OUR SHOP</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <!-- Quote Modal -->
+    <div class="quote-modal" id="quoteModal">
+        <div class="quote-modal-content">
+            <span class="modal-close" id="quoteModalClose">×</span>
+            <h2>Request a Quote</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+                <select required aria-label="Select Service">
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="heat-pump">Heat Pumps</option>
+                    <option value="water-pump">Water Pumps</option>
+                    <option value="solar">Solar Solutions</option>
+                    <option value="purification">Water Purification</option>
+                    <option value="training">Training</option>
+                    <option value="consultation">Consultation</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" role="region" aria-labelledby="hero-title">
+        <div class="hero-slides">
+            <div class="hero-slide active"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-title" id="hero-title">Our Services</h1>
+            <p class="hero-subtitle">Discover TechKnowGreen’s comprehensive range of sustainable solutions, from heat pumps and solar systems to training and consultation, designed for a greener future.</p>
+            <a href="#heat-pumps" class="btn-primary">Explore Services</a>
+            <a href="#request-service" class="btn-primary">Request a Service</a>
+        </div>
+    </section>
+
+   
+
+    <!-- Call to Action Section -->
+    <section class="cta" role="region" aria-labelledby="cta-title">
+        <div class="container">
+            <h2 id="cta-title" data-aos="fade-up">Ready to Go Green with TechKnowGreen?</h2>
+            <a href="contact.html" class="btn-primary" data-aos="fade-up" data-aos-delay="100">Contact Us Today</a>
+            <a href="#quoteModal" class="btn-primary" id="openQuoteModal" data-aos="fade-up" data-aos-delay="200">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                    </div>
+                    <p>TechKnowGreen provides sustainable solutions in heat pumps, water pumps, solar systems, water purification, training, and consultation to ensure a greener future.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/techknowgreen" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/techknowgreen" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/techknowgreen" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/techknowgreen" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+254710220398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <form>
+                            <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Project Gallery</a></li>
+                        <li><a href="#">Offers</a></li>
+                        <li><a href="#">Write to Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254707077709">(+254) 707-077-709</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="#" class="chat-btn float" aria-label="Chat with us"><i class="fas fa-comment"></i></a>
+    <a href="https://wa.me/+254710220398" class="whatsapp-btn float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <a href="#quoteModal" class="quote-btn btn-primary float" id="openQuoteModal" style="position: fixed; bottom: 15px; right: 60px;">Get Quote</a>
+    <div class="back-to-top float" aria-label="Back to top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TechKnowGreen",
+      "image": "https://techknowgreen.co.ke/img/logo.png",
+      "telephone": "+254707077709",
+      "email": "info@techknowgreen.co.ke",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AMAL Plaza, Links Rd",
+        "addressLocality": "Mombasa",
+        "addressCountry": "KE"
+      },
+      "url": "https://techknowgreen.co.ke/service.html",
+      "sameAs": [
+        "https://facebook.com/techknowgreen",
+        "https://twitter.com/techknowgreen",
+        "https://linkedin.com/company/techknowgreen",
+        "https://instagram.com/techknowgreen"
+      ],
+      "offers": {
+        "@type": "OfferCatalog",
+        "name": "Our Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Heat Pump Services",
+              "description": "Eco-friendly heat pump installation, maintenance, and repair."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Water Pump Services",
+              "description": "Reliable surface and submersible water pumps with maintenance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solar Solutions",
+              "description": "Solar panel installation, maintenance, and hybrid systems."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Water Purification Services",
+              "description": "Advanced water purification solutions including RO and UV systems."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Training Programs",
+              "description": "Hands-on training in solar installation and water pump maintenance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consultation Services",
+              "description": "Expert consultation for solar systems, water pumps, and energy audits."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Hide Loader with Fallback
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 500);
+            }
+        }
+
+        setTimeout(hideLoader, 3000);
+        window.addEventListener('load', hideLoader);
+        window.addEventListener('error', (e) => {
+            console.error('Resource failed to load:', e);
+            hideLoader();
+        }, true);
+
+        // Initialize AOS with fallback
+        try {
+            AOS.init({ duration: 800, once: true });
+        } catch (e) {
+            console.warn('AOS failed to initialize:', e);
+        }
+
+        // Hero Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+            const delay = Math.floor(Math.random() * (70000 - 30000 + 1)) + 30000;
+            setTimeout(nextSlide, delay);
+        }
+
+        showSlide(currentSlide);
+        const initialDelay = Math.floor(Math.random() * (70000 - 30000 + 1)) + 30000;
+        setTimeout(nextSlide, initialDelay);
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('#hamburgerMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+        const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+        if (hamburger && mobileNav && mobileNavOverlay) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('open');
+                mobileNavOverlay.classList.toggle('show');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                mobileNavOverlay.classList.remove('show');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('open');
+                    mobileNavOverlay.classList.remove('show');
+                });
+            });
+        }
+
+        if (dropdownToggle && mobileSubmenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Quote Modal
+        const quoteModal = document.querySelector('#quoteModal');
+        const openQuoteModal = document.querySelector('#openQuoteModal');
+        const quoteModalClose = document.querySelector('#quoteModalClose');
+
+        if (openQuoteModal && quoteModal) {
+            openQuoteModal.addEventListener('click', (e) => {
+                e.preventDefault();
+                quoteModal.classList.add('active');
+            });
+        }
+
+        if (quoteModalClose && quoteModal) {
+            quoteModalClose.addEventListener('click', () => {
+                quoteModal.classList.remove('active');
+            });
+
+            quoteModal.addEventListener('click', (e) => {
+                if (e.target === quoteModal) {
+                    quoteModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Form Validation
+        document.getElementById('serviceForm')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Name validation
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            const nameRegex = /^[A-Za-z\s]{2,}$/;
+            if (!nameRegex.test(name.value)) {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            // Phone validation
+            const phone = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const phoneRegex = /^\+?\d{10,15}$/;
+            if (!phoneRegex.test(phone.value)) {
+                phoneError.style.display = 'block';
+                isValid = false;
+            } else {
+                phoneError.style.display = 'none';
+            }
+
+            // If valid, simulate form submission
+            if (isValid) {
+                alert('Service request submitted successfully!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with TechKnowGreen's latest news on sustainable water and solar solutions in Kenya. Explore our projects, innovations, and industry insights.">
+    <meta name="keywords" content="TechKnowGreen, news, sustainable solutions, water pumps, solar solutions, Kenya, green energy">
+    <meta name="robots" content="index, follow">
+    <title>News - TechKnowGreen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* News Section Styles */
+        .news {
+            padding: 80px 0;
+            background: #f9fafb;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .news-hero {
+            position: relative;
+            background: url('img/200.jpg') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .news-hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .news-hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .news-hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news .section-title {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .news .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .news-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .news-filter button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .news-filter button.active,
+        .news-filter button:hover {
+            background: #0ebbee;
+            color: #fff;
+            border-color: #0ebbee;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 60px;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .news-card-content {
+            padding: 20px;
+        }
+
+        .news-card-date {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .news-card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .news-card-excerpt {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .news-card-readmore {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .news-card-readmore:hover {
+            background: linear-gradient(90deg, #077a9a, #055f7b);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .pagination button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            background: #fff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .pagination button.active,
+        .pagination button:hover {
+            background: #0ebbee;
+            color: #fff;
+            border-color: #0ebbee;
+        }
+
+        .pagination button:disabled {
+            background: #e5e7eb;
+            cursor: not-allowed;
+        }
+
+        /* Accessibility */
+        .news-filter button:focus,
+        .news-card-readmore:focus,
+        .pagination button:focus {
+            outline: 3px solid #0ebbee;
+            outline-offset: 3px;
+        }
+
+        /* Desktop Media Query */
+        @media (min-width: 1024px) {
+            .news .container {
+                max-width: 1600px;
+            }
+            .news-hero-title {
+                font-size: 3.5rem;
+            }
+            .news-hero-subtitle {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .news-hero {
+                height: 250px;
+            }
+            .news-hero-title {
+                font-size: 2.5rem;
+            }
+            .news-hero-subtitle {
+                font-size: 1.25rem;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .news {
+                padding: 60px 0;
+            }
+            .news-hero {
+                height: 200px;
+            }
+            .news-hero-title {
+                font-size: 2rem;
+            }
+            .news-hero-subtitle {
+                font-size: 1rem;
+            }
+            .news .section-title {
+                font-size: 2.25rem;
+            }
+            .news-card-title {
+                font-size: 1.25rem;
+            }
+            .news-card-excerpt {
+                font-size: 0.9rem;
+            }
+            .news-filter {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news {
+                padding: 40px 0;
+            }
+            .news-hero {
+                height: 180px;
+            }
+            .news-hero-title {
+                font-size: 1.75rem;
+            }
+            .news-hero-subtitle {
+                font-size: 0.9rem;
+            }
+            .news .section-title {
+                font-size: 2rem;
+            }
+            .news-card img {
+                height: 150px;
+            }
+            .news-card-title {
+                font-size: 1.1rem;
+            }
+            .news-card-excerpt {
+                font-size: 0.85rem;
+            }
+            .news-filter button,
+            .pagination button {
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+            TECH<span style="color: #0ebbee;">KNOW</span>GREEN
+        </div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Main Header with Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="about.html">ABOUT US</a>
+                <div class="dropdown">
+                    <a href="service.html">SERVICES</a>
+                    <div class="dropdown-content">
+                        <a href="service.html">HEAT PUMPS</a>
+                        <a href="service.html">WATER PUMPS</a>
+                        <a href="service.html">SOLAR SOLUTIONS</a>
+                        <a href="service.html">WATER PURIFICATION</a>
+                        <a href="service.html">TRAINING</a>
+                        <a href="service.html">CONSULTATION</a>
+                    </div>
+                </div>
+                <a href="projects.html">PROJECTS</a>
+                <a href="shop.html">OUR SHOP</a>
+                <a href="news.html" class="nav-highlight">NEWS</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search products..." aria-label="Search products">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+                <div class="search-results"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle">OUR OFFERS</a>
+            <div class="mobile-submenu">
+                <a href="service.html">HEAT PUMPS</a>
+                <a href="service.html">WATER PUMPS</a>
+                <a href="service.html">SOLAR SOLUTIONS</a>
+                <a href="service.html">WATER PURIFICATION</a>
+                <a href="service.html">TRAINING</a>
+                <a href="service.html">CONSULTATION</a>
+            </div>
+        </div>
+        <a href="projects.html">PROJECTS</a>
+        <a href="shop.html">OUR SHOP</a>
+        <a href="news.html" class="nav-highlight">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <!-- News Section -->
+    <section class="news" role="region" aria-labelledby="news-title">
+        <div class="news-hero">
+            <div class="news-hero-overlay">
+                <h2 class="news-hero-title" data-aos="fade-down">TechKnowGreen News</h2>
+                <p class="news-hero-subtitle" data-aos="fade-up" data-aos-delay="100">Stay updated with our latest projects, innovations, and sustainable solutions for a greener Kenya.</p>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="section-title" id="news-title" data-aos="fade-up">Latest Updates</h2>
+            <div class="news-filter" data-aos="fade-up" data-aos-delay="100">
+                <button data-filter="all" class="active">All</button>
+                <button data-filter="solar">Solar Solutions</button>
+                <button data-filter="water">Water Pumps</button>
+                <button data-filter="training">Training</button>
+                <button data-filter="consultation">Consultation</button>
+            </div>
+            <div class="news-grid" data-aos="fade-up" data-aos-delay="200">
+                <article class="news-card" data-category="solar">
+                    <img src="img/solar-project.jpg" alt="Solar project in rural Kenya" loading="lazy">
+                    <div class="news-card-content">
+                        <div class="news-card-date">May 15, 2025</div>
+                        <h3 class="news-card-title">New Solar Project Powers Rural Kenya</h3>
+                        <p class="news-card-excerpt">TechKnowGreen completes a 100kW solar installation in Mombasa, bringing clean energy to over 200 households.</p>
+                        <a href="#" class="news-card-readmore">Read More</a>
+                    </div>
+                </article>
+                <article class="news-card" data-category="water">
+                    <img src="img/water-pump.jpg" alt="Water pump installation" loading="lazy">
+                    <div class="news-card-content">
+                        <div class="news-card-date">April 20, 2025</div>
+                        <h3 class="news-card-title">Advanced Water Pumps for Coastal Communities</h3>
+                        <p class="news-card-excerpt">Our latest water pump systems improve access to clean water for communities in Kilifi County.</p>
+                        <a href="#" class="news-card-readmore">Read More</a>
+                    </div>
+                </article>
+                <article class="news-card" data-category="training">
+                    <img src="img/training-session.jpg" alt="Training session on solar maintenance" loading="lazy">
+                    <div class="news-card-content">
+                        <div class="news-card-date">March 10, 2025</div>
+                        <h3 class="news-card-title">Training Program for Solar Technicians</h3>
+                        <p class="news-card-excerpt">TechKnowGreen launches a training initiative to empower local technicians with solar maintenance skills.</p>
+                        <a href="#" class="news-card-readmore">Read More</a>
+                    </div>
+                </article>
+                <article class="news-card" data-category="consultation">
+                    <img src="img/consultation-meeting.jpg" alt="Consultation meeting with community" loading="lazy">
+                    <div class="news-card-content">
+                        <div class="news-card-date">February 5, 2025</div>
+                        <h3 class="news-card-title">Consulting for Sustainable Schools</h3>
+                        <p class="news-card-excerpt">We partnered with local schools to implement eco-friendly water and energy solutions.</p>
+                        <a href="#" class="news-card-readmore">Read More</a>
+                    </div>
+                </article>
+            </div>
+            <div class="pagination" data-aos="fade-up" data-aos-delay="300">
+                <button disabled>Previous</button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>Next</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                    </div>
+                    <p>At TechKnowGreen, we integrate sustainable practices into every project. From harnessing solar energy for water pumping to comprehensive energy solutions, we help you adopt environmentally friendly approaches to water and energy management.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/techknowgreen"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/techknowgreen"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/techknowgreen"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/techknowgreen"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+254710220398"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <form>
+                            <input type="email" placeholder="Enter your email" required aria-label="Enter your email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Our Project Gallery</a></li>
+                        <li><a href="#">Our Offers</a></li>
+                        <li><a href="#">Write to Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254707077709">(+254) 707-077-709</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-lock"></i> <a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="#" class="chat-btn"><i class="fas fa-comment"></i></a>
+    <a href="https://wa.me/+254710220398" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <a href="#" class="quote-btn btn-primary" id="openQuoteModal" style="position: fixed; bottom: 15px; right: 60px;">Get Quote</a>
+    <div class="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+    <div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "name": "TechKnowGreen",
+      "url": "https://techknowgreen.co.ke",
+      "logo": "https://techknowgreen.co.ke/img/logo.png",
+      "sameAs": [
+        "https://facebook.com/techknowgreen",
+        "https://twitter.com/techknowgreen",
+        "https://linkedin.com/company/techknowgreen",
+        "https://instagram.com/techknowgreen"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254707077709",
+        "contactType": "customer service",
+        "email": "info@techknowgreen.co.ke",
+        "areaServed": "KE"
+      }
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('#hamburgerMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+        const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+        if (hamburger && mobileNav && mobileNavOverlay) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('open');
+                mobileNavOverlay.classList.toggle('show');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                mobileNavOverlay.classList.remove('show');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('open');
+                    mobileNavOverlay.classList.remove('show');
+                });
+            });
+        }
+
+        if (dropdownToggle && mobileSubmenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // News Filter
+        const filterButtons = document.querySelectorAll('.news-filter button');
+        const newsCards = document.querySelectorAll('.news-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter cards
+                newsCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Pagination (Placeholder logic)
+        const paginationButtons = document.querySelectorAll('.pagination button');
+        paginationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (!button.disabled) {
+                    paginationButtons.forEach(btn => btn.classList.remove('active'));
+                    if (button.textContent !== 'Previous' && button.textContent !== 'Next') {
+                        button.classList.add('active');
+                    }
+                    // Add actual pagination logic here (e.g., load new articles)
+                }
+            });
+        });
+    </script>
+</body>
+</html>

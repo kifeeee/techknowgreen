@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore TECHKNOWGREEN's All-in-One Heat Pump Water Heaters (300L, 250L, 200L, 150L). Save 75% on energy costs with eco-friendly, smart hot water solutions in Kenya.">
+    <meta name="keywords" content="heat pump, water heater, air source, energy-efficient, eco-friendly, TECHKNOWGREEN, Kenya">
+    <meta name="robots" content="index, follow">
+    <title>Heat Pump Water Heaters - TECHKNOWGREEN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+    <link rel="stylesheet" href="style.css" async>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <style type="text/css">
+        
+        /* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Floating Animation */
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Loader Styles */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loader div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #0ebbee;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loader div:nth-child(1) {
+    left: 8px;
+    animation: loader1 0.6s infinite;
+}
+
+.loader div:nth-child(2) {
+    left: 8px;
+    animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(3) {
+    left: 32px;
+    animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(4) {
+    left: 56px;
+    animation: loader3 0.6s infinite;
+}
+
+@keyframes loader1 {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+@keyframes loader3 {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+
+@keyframes loader2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(24px, 0); }
+}
+
+.loader-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -120px);
+    color: #fff;
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Topbar Styles */
+.topbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info a {
+    color: #0ebbee;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #3395f0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0ebbee;
+    transform: scale(1.2);
+}
+
+/* Header Styles */
+.main-header {
+    background-color: #000;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: clamp(24px, 5vw, 28px);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+}
+
+.main-nav a,
+.main-nav .dropdown > a {
+    color: white;
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: "•";
+    color: #0ebbee;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.main-nav a:last-child::after {
+    content: "";
+}
+
+.main-nav a:hover {
+    color: #0ebbee;
+}
+
+.nav-highlight {
+    color: #3395f0 !important;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #0ebbee;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    margin-left: 20px;
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+.search-box {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-box:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(14, 187, 238, 0.5);
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    padding: 10px 0;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-results a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    transition: background 0.3s;
+}
+
+.search-results a:hover {
+    background: #f5f5f5;
+}
+
+.no-results {
+    padding: 8px 15px;
+    color: #777;
+    font-style: italic;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.modal-close:hover {
+    color: #ff0000;
+    transform: scale(1.2);
+}
+
+.modal-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.modal-price {
+    font-size: 20px;
+    color: #0ebbee;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.modal-link {
+    display: inline-block;
+    background: #0ebbee;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.modal-link:hover {
+    background: #0a93b9;
+}
+
+/* Mobile Navigation */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 102;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    background-color: #111;
+    z-index: 101;
+    padding: 80px 20px 20px;
+    transition: left 0.4s ease;
+    pointer-events: none;
+}
+
+.mobile-nav.open {
+    left: 0;
+    pointer-events: auto;
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.mobile-nav-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-nav a {
+    display: block;
+    color: white;
+    padding: 15px 40px 15px 10px;
+    border-bottom: 1px solid #222;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.mobile-nav a:hover {
+    background-color: #0ebbee;
+}
+
+.mobile-dropdown > a {
+    position: relative;
+}
+
+.mobile-dropdown > a::after {
+    content: "+";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.mobile-submenu {
+    display: none;
+    background-color: #1a1a1a;
+}
+
+.mobile-submenu.open {
+    display: block;
+}
+
+.mobile-submenu a {
+    padding-left: 30px;
+}
+
+/* Hero Section with Slider */
+.hero {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.hero-slide .container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 6vw, 42px);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: clamp(16px, 3vw, 18px);
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #0ebbee, #077a9a);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.hero-prev,
+.hero-next {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+    background: #0ebbee;
+}
+
+/* Why Heat Pumps Section */
+.why-heat-pumps {
+    padding: 80px 5%;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #0ebbee;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, #f9f9f9, #e8f0fe);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card i {
+    font-size: 42px;
+    color: #0ebbee;
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.benefit-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.insulation-note {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+}
+
+.insulation-note a {
+    color: #0ebbee;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.insulation-note a:hover {
+    color: #077a9a;
+}
+
+/* Heat Pump Sizes Section */
+.heat-pump-sizes {
+    padding: 80px 5%;
+    background: linear-gradient(180deg, #f5f5f5, #e8f0fe);
+}
+
+.sizes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.size-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.size-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.size-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.size-card h3 {
+    font-size: 19px;
+    margin: 15px;
+    font-weight: 600;
+}
+
+.size-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 0 15px 15px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-cart {
+    display: block;
+    text-align: center;
+    background: linear-gradient(90deg, #daeefc, #b3d9f7);
+    color: #333;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-cart:hover {
+    background: linear-gradient(90deg, #0ebbee, #077a9a);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Forlssman Section */
+.forlssman {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.forlssman p {
+    font-size: 16px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+/* Call to Action */
+.cta {
+    padding: 80px 5%;
+    background: linear-gradient(90deg, #0ebbee, #077a9a);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: clamp(24px, 5vw, 30px);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.cta p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+    color: #ccc;
+    padding: 60px 5% 30px;
+    position: relative;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.footer-logo h2 {
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-about p {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #0ebbee;
+    transform: scale(1.2);
+}
+
+.footer-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #0ebbee;
+    border-radius: 2px;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+    list-style: none;
+    font-size: 15px;
+}
+
+.footer-links a {
+    color: #ccc;
+    position: relative;
+    padding-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::before {
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 12px;
+    color: #0ebbee;
+}
+
+.footer-links a:hover {
+    color: #0ebbee;
+}
+
+.footer-contact li {
+    margin-bottom: 15px;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    font-size: 15px;
+    color: #ddd;
+}
+
+.footer-contact i {
+    color: #0ebbee;
+    margin-right: 10px;
+    font-size: 16px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.footer-contact a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #0ebbee;
+}
+
+.footer-newsletter {
+    margin-top: 20px;
+}
+
+.footer-newsletter input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+    font-size: 14px;
+    background: #222;
+    color: #fff;
+}
+
+.footer-newsletter button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #0ebbee;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+    background-color: #0a93b9;
+}
+
+.copyright {
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    background: #000000;
+    color: #aaa;
+    width: 100%;
+}
+
+.copyright a {
+    color: #0ebbee;
+    font-weight: 500;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+/* Floating Buttons */
+.chat-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #1e4bef;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 90px;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    font-weight: bold;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: #0ebbee;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+/* Media Queries */
+@media (min-width: 1025px) {
+    .main-header {
+        flex-wrap: nowrap;
+    }
+    .sizes-grid,
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        margin: 0;
+    }
+    .main-header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .sizes-grid,
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .hero {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        display: none;
+    }
+    .main-header {
+        padding: 10px 2%;
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .logo {
+        flex: 1;
+        text-align: center;
+        order: 2;
+        margin: 0 auto;
+    }
+    .logo h1 {
+        font-size: 24px;
+    }
+    .main-nav {
+        display: none;
+    }
+    .hamburger-menu {
+        display: flex;
+        order: 1;
+        position: fixed;
+        top: 20px;
+        left: 15px;
+        z-index: 102;
+    }
+    .search-container {
+        order: 3;
+        margin-left: 0;
+        width: 100%;
+        max-width: 200px;
+    }
+    .search-box {
+        width: 100%;
+    }
+    .hero {
+        height: 50vh;
+        padding: 40px 3%;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    .hero p {
+        font-size: 14px;
+    }
+    .why-heat-pumps,
+    .heat-pump-sizes,
+    .forlssman,
+    .cta {
+        padding: 50px 3%;
+    }
+    .section-title {
+        font-size: 28px;
+    }
+    .sizes-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    .size-card img {
+        height: 180px;
+    }
+    .size-card h3 {
+        font-size: 17px;
+    }
+    .size-card p {
+        font-size: 13px;
+    }
+    .btn-cart {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 20px;
+    }
+    .search-container {
+        max-width: 150px;
+    }
+    .hero h1 {
+        font-size: 24px;
+    }
+    .hero p {
+        font-size: 13px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+    .benefit-card i {
+        font-size: 32px;
+    }
+    .benefit-card h3 {
+        font-size: 18px;
+    }
+    .benefit-card p {
+        font-size: 13px;
+    }
+    .size-card img {
+        height: 150px;
+    }
+    .chat-btn,
+    .whatsapp-btn {
+        transform: scale(0.8);
+    }
+    .whatsapp-btn {
+        left: 70px;
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    .hero-nav {
+        gap: 5px;
+    }
+    .hero-prev,
+    .hero-next {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+    </style>
+    <<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+    // Initialize AOS
+    AOS.init({ duration: 800, once: true });
+
+    // Hero Slider
+    const slides = document.querySelectorAll('.hero-slide');
+    const prevBtn = document.querySelector('.hero-prev');
+    const nextBtn = document.querySelector('.hero-next');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto-slide every 5 seconds
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    // Pause on hover
+    document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(slideInterval));
+    document.querySelector('.hero').addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    // Search Functionality
+    const searchData = [
+        { title: "300L Heat Pump", description: "For large households, saves 75% on energy costs.", url: "#heatpump-300l", image: "img/heatpump-300l.jpg" },
+        { title: "250L Heat Pump", description: "Ideal for medium-sized families with efficient hot water.", url: "#heatpump-250l", image: "img/heatpump-250l.jpg" },
+        { title: "200L Heat Pump", description: "Perfect for smaller households, reduces energy bills.", url: "#heatpump-200l", image: "img/heatpump-200l.jpg" },
+        { title: "150L Heat Pump", description: "Compact for apartments or small homes.", url: "#heatpump-150l", image: "img/heatpump-150l.jpg" }
+    ];
+
+    const searchBox = document.querySelector('.search-box');
+    const searchResults = document.querySelector('.search-results');
+    const modal = document.querySelector('#searchModal');
+    const modalClose = document.querySelector('#modalClose');
+    const modalImage = document.querySelector('#modalImage');
+    const modalTitle = document.querySelector('#modalTitle');
+    const modalDescription = document.querySelector('#modalDescription');
+    const modalPrice = document.querySelector('#modalPrice');
+    const modalLink = document.querySelector('#modalLink');
+
+    // Suppress overlapping elements when modal is open
+    function toggleOverlapElements(hide) {
+        const elements = [document.querySelector('.main-header'), document.querySelector('.chat-btn'), document.querySelector('.whatsapp-btn'), document.querySelector('.back-to-top')];
+        elements.forEach(el => {
+            if (el) el.style.display = hide ? 'none' : '';
+        });
+    }
+
+    searchBox.addEventListener('input', () => {
+        const query = searchBox.value.trim().toLowerCase();
+        searchResults.innerHTML = '';
+
+        if (query.length === 0) {
+            searchResults.classList.remove('active');
+            return;
+        }
+
+        const filteredResults = searchData.filter(item =>
+            item.title.toLowerCase().includes(query) ||
+            item.description.toLowerCase().includes(query)
+        );
+
+        if (filteredResults.length === 0) {
+            searchResults.innerHTML = '<div class="no-results">No results found</div>';
+            searchResults.classList.add('active');
+            return;
+        }
+
+        filteredResults.forEach(item => {
+            const resultItem = document.createElement('a');
+            resultItem.href = '#';
+            resultItem.textContent = item.title;
+            resultItem.addEventListener('click', (e) => {
+                e.preventDefault();
+                modalImage.style.backgroundImage = `url(${item.image})`;
+                modalTitle.textContent = item.title;
+                modalDescription.textContent = item.description;
+                modalPrice.textContent = 'Contact for pricing';
+                modalLink.href = item.url;
+                modal.classList.add('active');
+                toggleOverlapElements(true);
+                searchResults.classList.remove('active');
+            });
+            searchResults.appendChild(resultItem);
+        });
+
+        searchResults.classList.add('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!searchBox.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.classList.remove('active');
+        }
+    });
+
+    searchBox.addEventListener('focus', () => {
+        if (searchBox.value.trim().length > 0) {
+            searchResults.classList.add('active');
+        }
+    });
+
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('active');
+        toggleOverlapElements(false);
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            toggleOverlapElements(false);
+        }
+    });
+
+    // Loader
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 800); // Reduced timeout for faster loading
+    });
+
+    // Mobile Navigation
+    const hamburger = document.querySelector('#hamburgerMenu');
+    const mobileNav = document.querySelector('#mobileNav');
+    const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+    const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+    const mobileSubmenu = document.querySelector('.mobile-submenu');
+
+    if (hamburger && mobileNav && mobileNavOverlay) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            mobileNavOverlay.classList.toggle('show');
+        });
+
+        mobileNavOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('open');
+            mobileNavOverlay.classList.remove('show');
+        });
+    }
+
+    if (dropdownToggle && mobileSubmenu) {
+        dropdownToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            mobileSubmenu.classList.toggle('open');
+        });
+    }
+
+    // Back to Top
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+    </script>
+
+</head>
+<body>
+    <!-- Loader -->
+    
+
+    <!-- Top bar with contact info -->
+    <div class="topbar">
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> Hotline: <a href="tel:+254707077709">(+254)707-077-709</a></span>
+            <span><i class="fas fa-envelope"></i> Email: <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></span>
+            <span><i class="fas fa-clock"></i> Mon-Fri: 8:30am-5pm</span>
+            <span><i class="fas fa-clock"></i> Sat: 8:30am-1pm</span>
+        </div>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Header with Navigation -->
+    <header class="main-header">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">
+            <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="service.html" class="nav-highlight">SERVICES</a>
+                <div class="dropdown-content">
+                    <a href="heatpump.html">HEAT PUMPS</a>
+                    <a href="service.html">WATER PUMPS</a>
+                    <a href="service.html">SOLAR SOLUTIONS</a>
+                    <a href="service.html">WATER PURIFICATION</a>
+                    <a href="service.html">TRAINING</a>
+                    <a href="service.html">CONSULTATION</a>
+                </div>
+            </div>
+            <a href="projects.html">PROJECTS</a>
+            <a href="shop.html">OUR SHOP</a>
+            <a href="news.html">NEWS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search heat pumps..." aria-label="Search heat pumps">
+            <button class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+            <div class="search-results"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle nav-highlight">SERVICES</a>
+            <div class="mobile-submenu">
+                <a href="heatpump.html">HEAT PUMPS</a>
+                <a href="service.html">WATER PUMPS</a>
+                <a href="service.html">SOLAR SOLUTIONS</a>
+                <a href="service.html">WATER PURIFICATION</a>
+                <a href="service.html">TRAINING</a>
+                <a href="service.html">CONSULTATION</a>
+            </div>
+        </div>
+        <a href="projects.html">PROJECTS</a>
+        <a href="shop.html">OUR SHOP</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose" aria-label="Close modal">×</span>
+            <div class="modal-image" id="modalImage"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <p class="modal-price" id="modalPrice"></p>
+            <a href="#" class="modal-link" id="modalLink">View Details</a>
+        </div>
+    </div>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero" id="heroSlider">
+        <div class="hero-slide active" style="background-image: url('img/heatpump-hero1.jpg');">
+            <div class="container">
+                <h1>All-in-One Heat Pump Water Heaters</h1>
+                <p>Save 75% on energy costs with eco-friendly 300L, 250L, 200L, and 150L models.</p>
+                <a href="contact.html" class="btn-primary float">Get a Quote</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('img/heatpump-hero2.jpg');">
+            <div class="container">
+                <h1>Efficient and Sustainable</h1>
+                <p>Reduce carbon emissions by 3 tons annually with smart heat pump technology.</p>
+                <a href="contact.html" class="btn-primary float">Inquire Now</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('img/heatpump-hero3.jpg');">
+            <div class="container">
+                <h1>Smart Hot Water Solutions</h1>
+                <p>Control your heat pump remotely for optimal performance and savings.</p>
+                <a href="contact.html" class="btn-primary float">Contact Us</a>
+            </div>
+        </div>
+        <div class="hero-nav">
+            <button class="hero-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Why Heat Pumps Section -->
+    <section class="why-heat-pumps" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our Heat Pumps?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card float" data-aos="zoom-in">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Save 75% on Bills</h3>
+                    <p>Use up to 75% less energy than traditional water heaters, slashing electricity costs.</p>
+                </div>
+                <div class="benefit-card float" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Cut 3 tons of carbon emissions yearly using renewable air energy.</p>
+                </div>
+                <div class="benefit-card float" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h3>Reliable Hot Water</h3>
+                    <p>Advanced compressors ensure consistent hot water, even in cold climates.</p>
+                </div>
+                <div class="benefit-card float" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Smart Controls</h3>
+                    <p>Manage settings remotely for convenience and optimized performance.</p>
+                </div>
+            </div>
+            <div class="insulation-note">
+                <p><strong>Note:</strong> For maximum efficiency, ensure your home is well-insulated to prevent energy loss. <a href="contact.html">Contact us</a> to learn more about heat pump efficiency!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heat Pump Sizes Section -->
+    <section class="heat-pump-sizes" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Choose Your Heat Pump Size</h2>
+            <div class="sizes-grid">
+                <div class="size-card float" data-aos="zoom-in">
+                    <img src="img/4.jpg" alt="300L Heat Pump" loading="lazy">
+                    <h3>300L Heat Pump</h3>
+                    <p>Perfect for large households or small businesses, delivering ample hot water with 75% energy savings.</p>
+                    <a href="contact.html" class="btn-cart">Inquire Now</a>
+                </div>
+                <div class="size-card float" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="img/1.jpg" alt="250L Heat Pump" loading="lazy">
+                    <h3>250L Heat Pump</h3>
+                    <p>Ideal for medium-sized families, balancing capacity and efficiency for daily needs.</p>
+                    <a href="contact.html" class="btn-cart">Inquire Now</a>
+                </div>
+                <div class="size-card float" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="img/3.jpg" alt="200L Heat Pump" loading="lazy">
+                    <h3>200L Heat Pump</h3>
+                    <p>Suitable for smaller households, offering reliable hot water with cost savings.</p>
+                    <a href="contact.html" class="btn-cart">Inquire Now</a>
+                </div>
+                <div class="size-card float" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="img/2.jpg" alt="150L Heat Pump" loading="lazy">
+                    <h3>150L Heat Pump</h3>
+                    <p>Compact and efficient for apartments or small homes with minimal hot water demands.</p>
+                    <a href="contact.html" class="btn-cart">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forlssman Section -->
+    <section class="forlssman" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Powered by Forlssman</h2>
+            <p>We partner with Forlssman, a global leader in heat pump innovation, committed to building China’s largest enamel insulation water tank and air source heat pump production base. Their cutting-edge technology ensures our heat pumps are sleek, efficient, and built to last.</p>
+            <a href="contact.html" class="btn-primary float">Explore Partnership</a>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Switch to Smart Hot Water Today</h2>
+            <p>Contact us to discover rebates and tailor your energy-efficient heat pump solution!</p>
+            <a href="contact.html" class="btn-primary float">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                    </div>
+                    <p>At TechKnowGreen, we deliver sustainable solutions like heat pumps and solar systems, helping you save energy and reduce emissions.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <form>
+                            <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Project Gallery</a></li>
+                        <li><a href="#">Offers</a></li>
+                        <li><a href="#">Write to Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254711312029">(+254) 711-312-029</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="#" class="chat-btn float" aria-label="Chat with us"><i class="fas fa-comment"></i></a>
+    <a href="#" class="whatsapp-btn float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <div class="back-to-top float" aria-label="Back to top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TechKnowGreen",
+      "image": "https://techknowgreen.co.ke/img/logo.png",
+      "telephone": "+254707077709",
+      "email": "info@techknowgreen.co.ke",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AMAL Plaza, Links Rd",
+        "addressLocality": "Mombasa",
+        "addressCountry": "KE"
+      },
+      "url": "https://techknowgreen.co.ke",
+      "sameAs": [
+        "https://facebook.com/techknowgreen",
+        "https://twitter.com/techknowgreen",
+        "https://linkedin.com/company/techknowgreen",
+        "https://instagram.com/techknowgreen"
+      ]
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

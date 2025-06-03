@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore TechKnowGreen's sustainable services including heat pumps, solar solutions, training, water pumps, and water purification in Kenya.">
+    <title>TECHKNOWGREEN - Our Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Loader */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            display: flex;
+            gap: 10px;
+        }
+
+        .loader div {
+            width: 15px;
+            height: 15px;
+            background: #0ebbee;
+            border-radius: 50%;
+            animation: loader 1.2s infinite ease-in-out;
+        }
+
+        .loader div:nth-child(2) { animation-delay: 0.2s; }
+        .loader div:nth-child(3) { animation-delay: 0.4s; }
+        .loader div:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes loader {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .loader-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0ebbee;
+            margin-top: 10px;
+        }
+
+        /* Top Bar */
+        .topbar {
+            background: #0ebbee;
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .topbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            margin-right: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .social-icons a {
+            margin-left: 10px;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f0f0f0;
+        }
+
+        /* Main Header */
+        .main-header {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #0ebbee;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .main-nav a {
+            font-size: 1rem;
+            color: #333;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.nav-highlight {
+            color: #0ebbee;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-box {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0ebbee;
+            border: none;
+            padding: 8px;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .search-results {
+            display: none;
+            position: absolute;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            top: 100%;
+            left: 0;
+        }
+
+        .search-results a {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .search-results .no-results {
+            padding: 10px;
+            color: #999;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .mobile-nav-overlay.show {
+            display: block;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: white;
+            padding: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .mobile-nav.open {
+            left: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mobile-nav a.nav-highlight {
+            color: #0ebbee;
+        }
+
+        .mobile-dropdown .mobile-submenu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .mobile-dropdown .mobile-submenu.open {
+            display: block;
+        }
+
+        /* Compact Hero */
+        .compact-hero {
+            background-image: url('img/feature.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .compact-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .compact-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+        }
+
+        .compact-hero .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .compact-hero .hero-subtitle {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Layout */
+        .services-wrapper {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .services-sidebar {
+            flex: 0 0 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .services-sidebar h3 {
+            font-size: 1.25rem;
+            color: #0ebbee;
+            margin-bottom: 15px;
+        }
+
+        .services-sidebar ul {
+            list-style: none;
+        }
+
+        .services-sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .services-sidebar ul li a {
+            color: #333;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .services-sidebar ul li a:hover,
+        .services-sidebar ul li a.active {
+            background: #0ebbee;
+            color: white;
+        }
+
+        .services-content {
+            flex: 1;
+        }
+
+        /* Service Sections */
+        .service-section {
+            margin-bottom: 40px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #0ebbee;
+            margin-bottom: 15px;
+        }
+
+        .intro-grid,
+        .product-grid,
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-card,
+        .product-card,
+        .benefit-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service-card i,
+        .benefit-card i {
+            font-size: 2rem;
+            color: #0ebbee;
+            margin-bottom: 10px;
+        }
+
+        .product-card .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .product-details {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #0ebbee;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary,
+        .btn-cart {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0ebbee;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover,
+        .btn-cart:hover {
+            background: #0a9fd9;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 40px 0;
+            background: #0ebbee;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-social a {
+            margin-right: 10px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .footer-newsletter input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            flex: 1;
+        }
+
+        .footer-newsletter button {
+            padding: 10px 20px;
+            background: #0ebbee;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-links li,
+        .footer-contact li {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 0;
+            background: #222;
+            margin-top: 20px;
+        }
+
+        /* Floating Buttons */
+        .chat-btn,
+        .whatsapp-btn,
+        .cart-btn,
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            z-index: 1000;
+            background: #0ebbee;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .chat-btn {
+            right: 20px;
+            bottom: 100px;
+        }
+
+        .whatsapp-btn {
+            right: 20px;
+            bottom: 160px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .cart-btn {
+            right: 20px;
+            bottom: 40px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 0.8rem;
+        }
+
+        .back-to-top {
+            right: 20px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-wrapper {
+                flex-direction: column;
+            }
+
+            .services-sidebar {
+                position: static;
+                flex: 1;
+            }
+
+            .main-nav {
+                gap: 10px;
+            }
+
+            .search-box {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .compact-hero {
+                min-height: 40vh;
+            }
+
+            .compact-hero .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .compact-hero .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .topbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .intro-grid,
+            .product-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .compact-hero .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .services-sidebar {
+                padding: 15px;
+            }
+
+            .services-sidebar ul li a {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loader-logo">TECHKNOWGREEN</div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> Hotline: <a href="tel:+254707077709">(+254)707-077-709</a></span>
+                <span><i class="fas fa-envelope"></i> Email: <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></span>
+                <span><i class="fas fa-clock"></i> Mon-Fri: 8:30am-5pm</span>
+                <span><i class="fas fa-clock"></i> Sat: 8:30am-1pm</span>
+            </div>
+            <div class="social-icons">
+                <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/254707077709" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <h1>TECHKNOWGREEN</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search..." aria-label="Search">
+                <button class="search-button" aria-label="Search Button"><i class="fas fa-search"></i></button>
+                <div class="search-results">
+                    <a href="#">Solar Panels</a>
+                    <a href="#">Heat Pumps</a>
+                    <div class="no-results">No results found</div>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="nav-highlight">Services</a>
+                <div class="dropdown">
+                    <a href="#">Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Heat Pumps</a>
+                        <a href="#">Solar Solutions</a>
+                        <a href="#">Water Pumps</a>
+                        <a href="#">Water Purification</a>
+                    </div>
+                </div>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="nav-highlight">Services</a>
+        <div class="mobile-dropdown">
+            <a href="#">Products</a>
+            <div class="mobile-submenu">
+                <a href="#">Heat Pumps</a>
+                <a href="#">Solar Solutions</a>
+                <a href="#">Water Pumps</a>
+                <a href="#">Water Purification</a>
+            </div>
+        </div>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Compact Hero Section -->
+    <section class="compact-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Our Services</h1>
+            <p class="hero-subtitle">Explore TechKnowGreen's sustainable services including heat pumps, solar solutions, training, water pumps, and water purification in Kenya.</p>
+        </div>
+    </section>
+
+    <!-- Services Content with Sidebar -->
+    <div class="container">
+        <div class="services-wrapper">
+            <aside class="services-sidebar">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#heat-pumps" class="active">Heat Pumps</a></li>
+                    <li><a href="#solar-solutions">Solar Solutions</a></li>
+                    <li><a href="#training">Training</a></li>
+                    <li><a href="#water-pumps">Water Pumps</a></li>
+                    <li><a href="#water-purification">Water Purification</a></li>
+                </ul>
+            </aside>
+
+            <div class="services-content">
+                <!-- Heat Pumps Section -->
+                <section class="service-section" id="heat-pumps">
+                    <h2 class="section-title">All-in-One Heat Pump Water Heaters</h2>
+                    <p class="hero-subtitle">Discover our range of eco-friendly heat pumps designed to save energy and reduce emissions. With models in 300L, 250L, 200L, and 150L capacities, our heat pumps offer efficient hot water solutions for homes and businesses.</p>
+                    <div class="intro-grid">
+                        <div class="service-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Efficient and Sustainable</h3>
+                            <p>Reduce carbon emissions by 3 tons annually with smart heat pump technology.</p>
+                            <a href="contact.html" class="btn-cart">Inquire Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-water"></i>
+                            <h3>Smart Hot Water Solutions</h3>
+                            <p>Control your heat pump remotely for optimal performance and savings.</p>
+                            <a href="contact.html" class="btn-cart">Contact Us</a>
+                        </div>
+                    </div>
+                    <h3>Choose Your Heat Pump Size</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/heatpump-bg.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">300L Heat Pump</h3>
+                                <p>Perfect for large households or small businesses, delivering ample hot water with 75% energy savings.</p>
+                                <a href="contact.html" class="btn-cart">Inquire Now</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/heatpump-bg.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">250L Heat Pump</h3>
+                                <p>Ideal for medium-sized families, balancing capacity and efficiency for daily needs.</p>
+                                <a href="contact.html" class="btn-cart">Inquire Now</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/heatpump-bg.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">200L Heat Pump</h3>
+                                <p>Suitable for smaller households, offering reliable hot water with cost savings.</p>
+                                <a href="contact.html" class="btn-cart">Inquire Now</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/heatpump-bg.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">150L Heat Pump</h3>
+                                <p>Compact and efficient for apartments or small homes with minimal hot water demands.</p>
+                                <a href="contact.html" class="btn-cart">Inquire Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Why Choose Our Heat Pumps?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <h3>Save 75% on Bills</h3>
+                            <p>Use up to 75% less energy than traditional water heaters, slashing electricity costs.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Eco-Friendly</h3>
+                            <p>Cut 3 tons of carbon emissions yearly using renewable air energy.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-water"></i>
+                            <h3>Reliable Hot Water</h3>
+                            <p>Advanced compressors ensure consistent hot water, even in cold climates.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-cog"></i>
+                            <h3>Smart Controls</h3>
+                            <p>Manage settings remotely for convenience and optimized performance.</p>
+                        </div>
+                    </div>
+                    <div class="partnership">
+                        <h3>Powered by Forlssman</h3>
+                        <p>We partner with Forlssman, a global leader in heat pump innovation, committed to building China’s largest enamel insulation water tank and air source heat pump production base. Their cutting-edge technology ensures our heat pumps are sleek, efficient, and built to last.</p>
+                        <a href="contact.html" class="btn-primary">Explore Partnership</a>
+                    </div>
+                    <h3>Switch to Smart Hot Water Today</h3>
+                    <p>Contact us to discover rebates and tailor your energy-efficient heat pump solution!</p>
+                    <a href="contact.html" class="btn-primary">Get Started</a>
+                </section>
+
+                <!-- Solar Solutions Section -->
+                <section class="service-section" id="solar-solutions">
+                    <h2 class="section-title">Solar Solutions</h2>
+                    <p class="hero-subtitle">Harness the power of the sun with our cutting-edge solar panels, inverters, batteries, and solar water pumps for sustainable energy solutions.</p>
+                    <a href="shop.html" class="btn-primary">Explore Solar Products</a>
+                    <h3>Our Solar Energy Solutions</h3>
+                    <div class="intro-grid">
+                        <div class="service-card">
+                            <i class="fas fa-solar-panel"></i>
+                            <h3>Solar Panels</h3>
+                            <p>High-efficiency photovoltaic panels designed to maximize energy output for residential and commercial applications.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Solar Inverters</h3>
+                            <p>Advanced inverters for efficient energy conversion, ensuring reliable power for your solar system.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-battery-full"></i>
+                            <h3>Solar Batteries</h3>
+                            <p>Long-lasting batteries to store solar energy, providing power during outages or at night.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-tint"></i>
+                            <h3>Solar Water Pumps</h3>
+                            <p>Eco-friendly pumps powered by solar energy, ideal for irrigation and water supply in remote areas.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                    </div>
+                    <h3>Featured Solar Products</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/product-2.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">10KVA Solar Inverter System</h3>
+                                <p class="product-price">KSh 198,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/solar.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">High-Efficiency Solar Panel</h3>
+                                <p class="product-price">KSh 150,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/battery.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">Lithium Solar Battery</h3>
+                                <p class="product-price">KSh 175,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/1.5W2B-45DC.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">Solar Water Pump</h3>
+                                <p class="product-price">KSh 95,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/SC102-PRO-6200.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">5KW Solar Inverter</h3>
+                                <p class="product-price">KSh 170,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Why Choose Our Solar Solutions</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Sustainability</h3>
+                            <p>Reduce your carbon footprint with clean, renewable solar energy solutions.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h3>High Efficiency</h3>
+                            <p>Advanced technology ensures maximum energy output and cost savings.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-tools"></i>
+                            <h3>Professional Installation</h3>
+                            <p>Expert setup and maintenance for reliable, long-term performance.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>Dedicated Support</h3>
+                            <p>24/7 customer service to assist with your solar energy needs.</p>
+                        </div>
+                    </div>
+                    <h3>Ready to Power Up with Solar?</h3>
+                    <a href="contact.html" class="btn-primary">Contact Us Today</a>
+                </section>
+
+                <!-- Training Section -->
+                <section class="service-section" id="training">
+                    <h2 class="section-title">Training Programs</h2>
+                    <p class="hero-subtitle">Empower yourself with hands-on training in solar installation, water pump maintenance, and renewable energy solutions from industry experts.</p>
+                    <a href="contact.html" class="btn-primary">Explore Courses</a>
+                    <h3>Our Training Programs</h3>
+                    <div class="intro-grid">
+                        <div class="service-card">
+                            <i class="fas fa-solar-panel"></i>
+                            <h3>Solar System Installation</h3>
+                            <p>Learn to design and install solar PV systems, including panels, inverters, and batteries, with hands-on practice. <strong>Duration:</strong> 2 Weeks</p>
+                            <a href="contact.html" class="btn-cart">Enroll Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-tint"></i>
+                            <h3>Water Pump Maintenance</h3>
+                            <p>Master the maintenance and repair of water pumps, including surface, submersible, and borehole pumps. <strong>Duration:</strong> 1 Week</p>
+                            <a href="contact.html" class="btn-cart">Enroll Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Renewable Energy Basics</h3>
+                            <p>Gain foundational knowledge in solar, wind, and hybrid systems for sustainable energy solutions. <strong>Duration:</strong> 3 Days</p>
+                            <a href="contact.html" class="btn-cart">Enroll Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-tools"></i>
+                            <h3>Advanced Solar System Design</h3>
+                            <p>Develop expertise in designing complex solar systems for commercial and industrial applications. <strong>Duration:</strong> 3 Weeks</p>
+                            <a href="contact.html" class="btn-cart">Enroll Now</a>
+                        </div>
+                    </div>
+                    <h3>Why Train with TechKnowGreen</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <h3>Expert Instructors</h3>
+                            <p>Learn from industry professionals with years of experience in renewable energy and water systems.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-hands"></i>
+                            <h3>Hands-On Training</h3>
+                            <p>Gain practical skills through real-world projects and equipment handling.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-certificate"></i>
+                            <h3>Certification</h3>
+                            <p>Earn recognized certificates to boost your career in sustainable technologies.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-users"></i>
+                            <h3>Small Class Sizes</h3>
+                            <p>Benefit from personalized attention in our focused, small-group training sessions.</p>
+                        </div>
+                    </div>
+                    <h3>Ready to Build Your Skills?</h3>
+                    <a href="contact.html" class="btn-primary">Contact Us Today</a>
+                </section>
+
+                <!-- Water Pumps Section -->
+                <section class="service-section" id="water-pumps">
+                    <h2 class="section-title">Water Pumps</h2>
+                    <p class="hero-subtitle">Discover our range of high-efficiency water pumps for residential, commercial, and industrial applications, designed for sustainability and reliability.</p>
+                    <a href="shop.html" class="btn-primary">Explore Pumps</a>
+                    <h3>Our Water Pump Solutions</h3>
+                    <div class="intro-grid">
+                        <div class="service-card">
+                            <i class="fas fa-tint"></i>
+                            <h3>Surface Pumps</h3>
+                            <p>Ideal for shallow water sources, our surface pumps are perfect for irrigation, domestic water supply, and light industrial use.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-water"></i>
+                            <h3>Self-Priming Pumps</h3>
+                            <p>Designed for quick startup without manual priming, suitable for water transfer and boosting applications.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-cog"></i>
+                            <h3>Centrifugal Pumps</h3>
+                            <p>Single and twin impeller centrifugal pumps for high-flow water transfer in agriculture and industry.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-tools"></i>
+                            <h3>Multistage Pumps</h3>
+                            <p>High-pressure pumps for water supply, irrigation, and industrial processes, offering energy efficiency.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-water"></i>
+                            <h3>Borehole Pumps & Motors</h3>
+                            <p>Robust pumps and motors for deep water extraction, ideal for domestic and agricultural use.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-tint"></i>
+                            <h3>Submersible Drainage Pumps</h3>
+                            <p>Efficient pumps for draining flooded areas, basements, and construction sites.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-trash-alt"></i>
+                            <h3>Wastewater Lift Pumps</h3>
+                            <p>Heavy-duty pumps for sewage and wastewater management in residential and commercial settings.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-swimming-pool"></i>
+                            <h3>Swimming Pool Pumps</h3>
+                            <p>Reliable pumps for pool circulation and filtration, ensuring clean and clear water.</p>
+                            <a href="shop.html" class="btn-cart">Learn More</a>
+                        </div>
+                    </div>
+                    <h3>Featured Water Pumps</h3>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/1.5W2B-45DC.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">Smart Surface Pump</h3>
+                                <p class="product-price">KSh 85,500.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/submersible.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">Submersible Drainage Pump</h3>
+                                <p class="product-price">KSh 95,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/borehole.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">4-Inch Borehole Pump</h3>
+                                <p class="product-price">KSh 120,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image" style="background-image: url('img/evms-k.jpg');"></div>
+                            <div class="product-details">
+                                <h3 class="product-title">Multistage Surface Pump</h3>
+                                <p class="product-price">KSh 90,000.00</p>
+                                <a href="shop.html" class="btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Why Choose Our Water Pumps</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Eco-Friendly</h3>
+                            <p>Energy-efficient pumps designed to reduce environmental impact and operational costs.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>High Reliability</h3>
+                            <p>Durable pumps built to withstand harsh conditions, backed by industry-leading warranties.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Advanced Technology</h3>
+                            <p>Innovative designs for optimal performance in residential, agricultural, and industrial applications.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>Expert Support</h3>
+                            <p>Professional installation and 24/7 customer support for all your water pump needs.</p>
+                        </div>
+                    </div>
+                    <h3>Need the Perfect Water Pump?</h3>
+                    <a href="contact.html" class="btn-primary">Contact Us Today</a>
+                </section>
+
+                <!-- Water Purification Section -->
+                <section class="service-section" id="water-purification">
+                    <h2 class="section-title">Water Purification Services</h2>
+                    <p class="hero-subtitle">Ensure clean, safe water with our advanced purification solutions, including reverse osmosis, UV filtration, and industrial treatment systems.</p>
+                    <a href="contact.html" class="btn-primary">Explore Services</a>
+                    <h3>Our Water Purification Services</h3>
+                    <div class="intro-grid">
+                        <div class="service-card">
+                            <i class="fas fa-filter"></i>
+                            <h3>Reverse Osmosis Systems</h3>
+                            <p>High-efficiency RO systems to remove contaminants and provide pure drinking water for homes and businesses.</p>
+                            <a href="contact.html" class="btn-cart">Inquire Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>UV Water Purification</h3>
+                            <p>Advanced UV technology to eliminate bacteria and viruses, ensuring safe water without chemicals.</p>
+                            <a href="contact.html" class="btn-cart">Inquire Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-industry"></i>
+                            <h3>Industrial Water Treatment</h3>
+                            <p>Customized solutions for large-scale water purification, ideal for factories and commercial facilities.</p>
+                            <a href="contact.html" class="btn-cart">Inquire Now</a>
+                        </div>
+                        <div class="service-card">
+                            <i class="fas fa-tint"></i>
+                            <h3>Water Softening Systems</h3>
+                            <p>Effective solutions to reduce water hardness, protecting appliances and improving water quality.</p>
+                            <a href="contact.html" class="btn-cart">Inquire Now</a>
+                        </div>
+                    </div>
+                    <h3>Why Choose TechKnowGreen</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Advanced Technology</h3>
+                            <p>State-of-the-art purification systems for maximum efficiency and water quality.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Eco-Friendly Solutions</h3>
+                            <p>Sustainable systems designed to minimize environmental impact.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-tools"></i>
+                            <h3>Expert Installation</h3>
+                            <p>Professional installation and maintenance by certified technicians.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>Reliable Support</h3>
+                            <p>Dedicated customer support for ongoing maintenance and inquiries.</p>
+                        </div>
+                    </div>
+                    <h3>Ready for Clean, Safe Water?</h3>
+                    <a href="contact.html" class="btn-primary">Contact Us Today</a>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2>Ready to Go Green?</h2>
+        <a href="contact.html" class="btn-primary">Contact Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo footer-about">
+                    <h2>TECHKNOWGREEN</h2>
+                    <p>TechKnowGreen provides sustainable solutions in heat pumps, solar systems, water pumps, water purification, and training to empower a greener future.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/254707077709" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <form>
+                            <input type="email" placeholder="Your Email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Project Gallery</a></li>
+                        <li><a href="#">Offers</a></li>
+                        <li><a href="#">Write to Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254707077709">(+254) 707-077-709</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 TechKnowGreen. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="chat-btn" aria-label="Open chat">
+        <i class="fas fa-comment"></i>
+    </div>
+    <a href="https://wa.me/254707077709" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+    <div class="cart-btn" aria-label="View cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-wrapper');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 500);
+        });
+
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            mobileOverlay.classList.toggle('show');
+        });
+        mobileOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('open');
+            mobileOverlay.classList.remove('show');
+        });
+
+        // Mobile Dropdown
+        const mobileDropdowns = document.querySelectorAll('.mobile-dropdown > a');
+        mobileDropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                e.preventDefault();
+                const submenu = dropdown.nextElementSibling;
+                submenu.classList.toggle('open');
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Sidebar Navigation Active State and Smooth Scroll
+        const sidebarLinks = document.querySelectorAll('.services-sidebar a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Highlight sidebar link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.service-section');
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Search Functionality
+        const searchBox = document.querySelector('.search-box');
+        const searchResults = document.querySelector('.search-results');
+        searchBox.addEventListener('input', () => {
+            if (searchBox.value.trim().length > 0) {
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

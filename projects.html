@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore TechKnowGreen's completed projects in solar, water, and energy solutions across Kenya.">
+    <title>Projects - TECHKNOWGREEN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            padding-top: 110px; /* Space for contact-bar, topbar, and fixed header */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Contact Bar (New Topmost Section) */
+        .contact-bar {
+            background-color: #111;
+            color: white;
+            padding: 8px 3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 13px;
+        }
+
+        .contact-info a {
+            color: #0ebbee;
+        }
+
+        /* Topbar (Now Only Social Icons) */
+        .topbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icons a:hover {
+            color: #0ebbee;
+            transform: scale(1.2);
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            margin-left: 15px;
+            flex-grow: 1;
+            max-width: 200px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 6px 12px;
+            border-radius: 20px 0 0 20px;
+            border: none;
+            width: 100%;
+            font-size: 13px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(14, 187, 238, 0.5);
+        }
+
+        .search-button {
+            padding: 6px 12px;
+            border-radius: 0 20px 20px 0;
+            border: none;
+            background: #0ebbee;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: #0a93b9;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: none;
+        }
+
+        .clear-search.active {
+            display: block;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            padding: 8px 0;
+            margin-top: 5px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-results a {
+            display: block;
+            padding: 6px 12px;
+            color: #333;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+
+        .search-results a:hover {
+            background: #f5f5f5;
+        }
+
+        .no-results {
+            padding: 6px 12px;
+            color: #777;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 550px;
+            width: 90%;
+            padding: 15px;
+            position: relative;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #ff0000;
+            transform: scale(1.2);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            margin-bottom: 12px;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .modal-description {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .modal-price {
+            font-size: 18px;
+            color: #0ebbee;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .modal-link {
+            display: inline-block;
+            background: #0ebbee;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .modal-link:hover {
+            background: #0a93b9;
+            transform: scale(1.05);
+        }
+
+        /* Navigation */
+        .main-header {
+            background-color: #000;
+            padding: 8px 3%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            flex: 0 0 auto;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 24px;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: 12px;
+            flex-wrap: nowrap;
+        }
+
+        .main-nav a,
+        .main-nav .dropdown>a {
+            color: white;
+            font-weight: 500;
+            padding: 6px 0;
+            position: relative;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .main-nav a::after {
+            content: "•";
+            color: #0ebbee;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .main-nav a:last-child::after {
+            content: "";
+        }
+
+        .main-nav a:hover {
+            color: #0ebbee;
+        }
+
+        .nav-highlight {
+            color: #3395f0 !important;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #222;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            display: block;
+            border-bottom: 1px solid #333;
+            font-size: 12px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0ebbee;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Projects Section Styles */
+        .projects-hero {
+            background-image: url('img/feature.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 320px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .projects-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .projects-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 15px;
+            max-width: 90%;
+        }
+
+        .projects-hero-title {
+            font-size: 36px;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .projects-hero-subtitle {
+            font-size: 18px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .projects-main {
+            padding: 40px 3%;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #0ebbee;
+            margin: 8px auto 0;
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 1px solid #0ebbee;
+            color: #0ebbee;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #0ebbee;
+            color: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-details {
+            padding: 12px;
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .project-category {
+            font-size: 12px;
+            color: #0ebbee;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .project-description {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: linear-gradient(90deg, #0a93b9, #055f7a);
+            transform: scale(1.05);
+        }
+
+        .cta-section {
+            padding: 40px 3%;
+            background-color: #f1f1f1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 12px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #0a93b9, #055f7a);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+            color: #ccc;
+            padding: 40px 3% 20px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-logo h2::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #0ebbee;
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            font-size: 13px;
+            color: #ffffff;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+        }
+
+        .footer-social a {
+            color: #ffffff;
+            font-size: 16px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #0ebbee;
+            transform: scale(1.2);
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .footer-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #0ebbee;
+            border-radius: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+            list-style: none;
+            font-size: 13px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            position: relative;
+            padding-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a::before {
+            content: "\f054";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 10px;
+            color: #0ebbee;
+        }
+
+        .footer-links a:hover {
+            color: #0ebbee;
+        }
+
+        .footer-contact li {
+            margin-bottom: 10px;
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            font-size: 13px;
+            color: #ddd;
+        }
+
+        .footer-contact i {
+            color: #0ebbee;
+            margin-right: 8px;
+            font-size: 14px;
+            min-width: 16px;
+            text-align: center;
+        }
+
+        .footer-contact a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #0ebbee;
+        }
+
+        .footer-newsletter {
+            margin-top: 12px;
+        }
+
+        .footer-newsletter input {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 65%;
+            font-size: 12px;
+            background: #222;
+            color: #fff;
+        }
+
+        .footer-newsletter button {
+            padding: 6px 10px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #0ebbee;
+            color: #fff;
+            font-weight: 500;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-newsletter button:hover {
+            background-color: #0a93b9;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding: 12px 0;
+            text-align: center;
+            font-size: 12px;
+            background: #000000;
+            color: #aaa;
+            width: 100%;
+        }
+
+        .copyright a {
+            color: #0ebbee;
+            font-weight: 500;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Floating Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            background-color: #1e4bef;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 15px;
+            left: 75px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        /* Shopping Cart */
+        .cart-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background-color: #293859;
+            color: rgb(255, 255, 255);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 75px;
+            right: 15px;
+            background-color: #0ebbee;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        /* Mobile Navigation */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 102;
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            margin: 2px 0;
+            transition: 0.4s;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 75%;
+            height: 100%;
+            background-color: #111;
+            z-index: 101;
+            padding: 70px 15px 15px;
+            transition: left 0.4s ease;
+            pointer-events: none;
+        }
+
+        .mobile-nav.open {
+            left: 0;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-nav-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: white;
+            padding: 12px 30px 12px 8px;
+            border-bottom: 1px solid #222;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .mobile-nav a:hover {
+            background-color: #0ebbee;
+        }
+
+        .mobile-dropdown>a {
+            position: relative;
+        }
+
+        .mobile-dropdown>a::after {
+            content: "+";
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .mobile-submenu {
+            display: none;
+            background-color: #1a1a1a;
+        }
+
+        .mobile-submenu.open {
+            display: block;
+        }
+
+        .mobile-submenu a {
+            padding-left: 25px;
+            font-size: 13px;
+        }
+
+        /* Loader Styles */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader {
+            display: inline-block;
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+
+        .loader div {
+            position: absolute;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0ebbee;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+
+        .loader div:nth-child(1) {
+            left: 8px;
+            animation: loader1 0.6s infinite;
+        }
+
+        .loader div:nth-child(2) {
+            left: 8px;
+            animation: loader2 0.6s infinite;
+        }
+
+        .loader div:nth-child(3) {
+            left: 30px;
+            animation: loader2 0.6s infinite;
+        }
+
+        .loader div:nth-child(4) {
+            left: 50px;
+            animation: loader3 0.6s infinite;
+        }
+
+        @keyframes loader1 {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes loader3 {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes loader2 {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(20px, 0);
+            }
+        }
+
+        .loader-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100px);
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Media Queries for Header and Navigation */
+        @media (min-width: 1025px) {
+            .main-nav {
+                display: flex !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-header {
+                padding: 6px 2%;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            .main-nav {
+                font-size: 11px;
+                gap: 8px;
+            }
+
+            .main-nav a::after {
+                margin-left: 8px;
+            }
+
+            .search-container {
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px; /* Only main-header visible */
+            }
+
+            .contact-bar,
+            .topbar {
+                display: none; /* Hide both contact-bar and topbar */
+            }
+
+            .main-header {
+                padding: 6px 2%;
+                height: 60px;
+            }
+
+            .logo {
+                flex: 1;
+                text-align: center;
+                order: 2;
+                margin: 0 auto;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                order: 1;
+                position: fixed;
+                top: 18px;
+                left: 12px;
+                z-index: 102;
+            }
+
+            .search-container {
+                order: 3;
+                margin-left: 0;
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 55px;
+            }
+
+            .main-header {
+                height: 55px;
+            }
+
+            .logo h1 {
+                font-size: 18px;
+            }
+
+            .hamburger-menu {
+                top: 16px;
+                left: 10px;
+            }
+
+            .search-container {
+                max-width: 130px;
+            }
+
+            .search-box {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .search-button {
+                padding: 5px 10px;
+            }
+        }
+
+        /* Media Queries for Other Sections */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-hero {
+                height: 260px;
+            }
+
+            .projects-hero-title {
+                font-size: 28px;
+            }
+
+            .projects-hero-subtitle {
+                font-size: 16px;
+            }
+
+            .projects-main,
+            .cta-section {
+                padding: 30px 2%;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .project-filters {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .project-image {
+                height: 140px;
+            }
+
+            .project-details {
+                padding: 10px;
+            }
+
+            .project-title {
+                font-size: 15px;
+            }
+
+            .project-category {
+                font-size: 11px;
+            }
+
+            .project-description {
+                font-size: 11px;
+            }
+
+            .project-link {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+
+            .cta-text {
+                font-size: 18px;
+            }
+
+            .btn-primary {
+                padding: 7px 12px;
+                font-size: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-logo h2 {
+                font-size: 24px;
+            }
+
+            .footer-title {
+                font-size: 16px;
+            }
+
+            .footer-about p,
+            .footer-links li,
+            .footer-contact li {
+                font-size: 12px;
+            }
+
+            .footer-newsletter input {
+                width: 60%;
+                padding: 6px 8px;
+                font-size: 11px;
+            }
+
+            .footer-newsletter button {
+                padding: 6px 8px;
+                font-size: 11px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 10px;
+            }
+
+            .modal-image {
+                height: 140px;
+            }
+
+            .modal-title {
+                font-size: 18px;
+            }
+
+            .modal-description {
+                font-size: 13px;
+            }
+
+            .modal-price {
+                font-size: 16px;
+            }
+
+            .modal-link {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-hero {
+                height: 200px;
+            }
+
+            .projects-hero-title {
+                font-size: 24px;
+            }
+
+            .projects-hero-subtitle {
+                font-size: 14px;
+            }
+
+            .projects-main,
+            .cta-section {
+                padding: 20px 2%;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .project-filters {
+                gap: 6px;
+            }
+
+            .filter-btn {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+
+            .project-image {
+                height: 120px;
+            }
+
+            .project-title {
+                font-size: 14px;
+            }
+
+            .project-category {
+                font-size: 10px;
+            }
+
+            .project-description {
+                font-size: 10px;
+            }
+
+            .project-link {
+                padding: 3px 6px;
+                font-size: 10px;
+            }
+
+            .cta-text {
+                font-size: 16px;
+            }
+
+            .btn-primary {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .chat-btn,
+            .whatsapp-btn,
+            .cart-btn {
+                transform: scale(0.8);
+            }
+
+            .whatsapp-btn {
+                left: 60px;
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .cart-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .cart-count {
+                width: 16px;
+                height: 16px;
+                font-size: 10px;
+            }
+
+            .back-to-top {
+                width: 35px;
+                height: 35px;
+                bottom: 60px;
+            }
+
+            .footer-logo h2 {
+                font-size: 22px;
+            }
+
+            .footer-title {
+                font-size: 15px;
+            }
+
+            .footer-about p,
+            .footer-links li,
+            .footer-contact li {
+                font-size: 11px;
+            }
+
+            .footer-social a {
+                font-size: 14px;
+            }
+
+            .footer-newsletter input {
+                width: 55%;
+                padding: 5px 6px;
+                font-size: 10px;
+            }
+
+            .footer-newsletter button {
+                padding: 5px 6px;
+                font-size: 10px;
+            }
+
+            .modal-image {
+                height: 100px;
+            }
+
+            .modal-close {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+            TECH<span style="color: #0ebbee;">KNOW</span>GREEN
+        </div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Contact Bar (New Topmost Section) -->
+    <div class="contact-bar">
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> Hotline: <a href="tel:+254707077709">(+254)707-077-709</a></span>
+            <span><i class="fas fa-envelope"></i> Email us: <a
+                    href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></span>
+            <span><i class="fas fa-clock"></i> Mon to Fri: 8:30am-5pm</span>
+            <span><i class="fas fa-clock"></i> Sat: 8:30am-1pm</span>
+        </div>
+    </div>
+
+    <!-- Topbar with Social Icons -->
+    <div class="topbar">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Header with Navigation -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="#">OUR OFFERS</a>
+                <div class="dropdown-content">
+                    <a href="#">BOREHOLE SERVICES</a>
+                    <a href="#">WATER PUMPS</a>
+                    <a href="#">SOLAR SOLUTIONS</a>
+                    <a href="#">WATER TREATMENT</a>
+                    <a href="#">POWER GENERATORS</a>
+                    <a href="#">STEEL TANKS & TOWERS</a>
+                </div>
+            </div>
+            <a href="#" class="nav-highlight">PROJECTS</a>
+            <a href="index.html#products">OUR SHOP</a>
+            <a href="#">NEWS</a>
+            <a href="#">CONTACT</a>
+        </nav>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search products...">
+            <button class="clear-search" title="Clear search"><i class="fas fa-times"></i></button>
+            <button class="search-button"><i class="fas fa-search"></i></button>
+            <div class="search-results"></div>
+        </div>
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle">OUR OFFERS</a>
+            <div class="mobile-submenu">
+                <a href="#">BOREHOLE SERVICES</a>
+                <a href="#">WATER PUMPS</a>
+                <a href="#">SOLAR SOLUTIONS</a>
+                <a href="#">WATER TREATMENT</a>
+                <a href="#">POWER GENERATORS</a>
+                <a href="#">STEEL TANKS & TOWERS</a>
+            </div>
+        </div>
+        <a href="#" class="nav-highlight">PROJECTS</a>
+        <a href="index.html#products">OUR SHOP</a>
+        <a href="#">NEWS</a>
+        <a href="#">CONTACT</a>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">×</span>
+            <div class="modal-image" id="modalImage"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <p class="modal-price" id="modalPrice"></p>
+            <a href="#" class="modal-link" id="modalLink">View Details</a>
+        </div>
+    </div>
+
+    <!-- Projects Hero Section -->
+    <section class="projects-hero">
+        <div class="projects-hero-content">
+            <h1 class="projects-hero-title">Our Projects</h1>
+            <p class="projects-hero-subtitle">Discover how TechKnowGreen transforms communities with sustainable water
+                and energy solutions.</p>
+        </div>
+    </section>
+
+    <!-- Projects Main Content -->
+    <section class="projects-main">
+        <h2 class="section-title">Project Portfolio</h2>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="solar">Solar</button>
+            <button class="filter-btn" data-filter="cold-room">Cold Room</button>
+            <button class="filter-btn" data-filter="water">Water</button>
+            <button class="filter-btn" data-filter="heat-pumps">Heat Pumps</button>
+            <button class="filter-btn" data-filter="pumps">Pumps</button>
+            <button class="filter-btn" data-filter="road-safety">Road Safety</button>
+        </div>
+        <div class="project-grid">
+            <div class="project-card" data-category="solar">
+                <div class="project-image" style="background-image: url('img/sudan.jpg');"></div>
+                <div class="project-details">
+                    <p class="project-category">Solar</p>
+                    <h3 class="project-title">Solar Installation in Sudan</h3>
+                    <p class="project-description">Installed a 50kW solar system for a rural community in Sudan, providing clean energy to over 200 households.</p>
+                    <a href="#" class="project-link">View Details</a>
+                </div>
+            </div>
+            <div class="project-card" data-category="cold-room">
+                <div class="project-image" style="background-image: url('img/kakuzi-1.jpg');"></div>
+                <div class="project-details">
+                    <p class="project-category">Cold Room</p>
+                    <h3 class="project-title">Cold Room Solution in Kakuzi</h3>
+                    <p class="project-description">Designed and implemented a solar-powered cold room for agricultural produce storage in Kakuzi, enhancing food preservation.</p>
+                    <a href="#" class="project-link">View Details</a>
+                </div>
+            </div>
+            <div class="project-card" data-category="water">
+                <div class="project-image" style="background-image: url('img/gallery-60.jpg');"></div>
+                <div class="project-details">
+                    <p class="project-category">Water</p>
+                    <h3 class="project-title">Water Purification in Mtwapa</h3>
+                    <p class="project-description">Installed an advanced water purification system in Mtwapa, providing clean drinking water to over 1,000 residents.</p>
+                    <a href="#" class="project-link">View Details</a>
+                </div>
+            </div>
+            <div class="project-card" data-category="heat-pumps">
+                <div class="project-image" style="background-image: url('img/kiluwa-1.jpg');"></div>
+                <div class="project-details">
+                    <p class="project-category">Heat Pumps</p>
+                    <h3 class="project-title">Heat Pumps Installation in Kiluwa</h3>
+                    <p class="project-description">Deployed energy-efficient heat pumps for water heating in Kiluwa, reducing energy costs for a commercial facility.</p>
+                    <a href="#" class="project-link">View Details</a>
+                </div>
+            </div>
+            <div class="project-card" data-category="pumps">
+                <div class="project-image" style="background-image: url('img/kingfish-1.jpg');"></div>
+                <div class="project-details">
+                    <p class="project-category">Pumps</p>
+                    <h3 class="project-title">Pumps Installation in Kingfish Farm</h3>
+                    <p class="project-description">Installed high-efficiency water pumps for aquaculture at Kingfish Farm, ensuring consistent water circulation.</p>
+                    <a href="#" class="project-link">View Details</a>
+                </div>
+            </div>
+            <div class="project-card" data-category="road-safety">
+                <div class="project-image" style="background-image: url('img/road-1.jpg');"></div>
+                <div class="project-details">
+                    <p class="project-category">Road Safety</p>
+                    <h3 class="project-title">Road Safety in Moyale</h3>
+                    <p class="project-description">Implemented solar-powered road safety solutions in Moyale, including lighting and signage, to enhance nighttime visibility.</p>
+                    <a href="#" class="project-link">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <p class="cta-text">Ready to start your sustainable project with TechKnowGreen?</p>
+        <a href="#contact" class="btn-primary">Get a Free Quote</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                </div>
+                <p>At TechKnowGreen, we integrate sustainable practices into every project. From harnessing solar energy
+                    for water pumping to comprehensive energy solutions, we help you adopt environmentally friendly
+                    approaches to water and energy management.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="footer-newsletter">
+                    <form>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-quick-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Our Return Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Our Project Gallery</a></li>
+                    <li><a href="#">Our Offers</a></li>
+                    <li><a href="#">Write to Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact-info">
+                <h3 class="footer-title">Contact Information</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+254711312029">(+254) 711-312-029</a></li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                    <li><i class="fas fa-envelope"></i> <a
+                            href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                    <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                    <li><i class="fas fa-lock"></i> <a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/+254707077709" class="chat-btn"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/+254707077709" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <div class="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+    <div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">Item added to cart!</div>
+
+    <script>
+        // Search Functionality
+        const searchData = [
+            { title: "10KVA Solar Inverter System", description: "High-capacity solar inverter for reliable energy conversion and management.", price: "KSh 198,000.00", url: "#product-10kva-solar-inverter", image: "img/product-2.jpg" },
+            { title: "5HP Variable Frequency Drive", description: "Efficient drive for precise motor control in industrial applications.", price: "KSh 225,220.00", url: "#product-5hp-vfd", image: "img/sinovo.jpg" },
+            { title: "High Efficiency Heat Pump", description: "Energy-saving heat pump for water heating with minimal environmental impact.", price: "KSh 315,000.00", url: "#product-heat-pump", image: "img/250L.jpg" },
+            { title: "3KVA Solar Panel Kit", description: "Complete solar panel kit for small-scale renewable energy setups.", price: "KSh 150,000.00", url: "#product-3kva-solar-kit", image: "img/solar.jpg" },
+            { title: "Vacuum Water Pump System", description: "Robust water pump for various applications, ensuring high efficiency.", price: "KSh 85,500.00", url: "#product-vacuum-pump", image: "img/1.5W2B-45DC.jpg" },
+            { title: "Smart Water Level Sensor Kit", description: "Automated water level monitoring for tanks and reservoirs.", price: "KSh 45,750.00", url: "#product-water-level-sensor", image: "img/level.jpg" },
+            { title: "5KW Solar Inverter", description: "Mid-range inverter for efficient solar energy systems.", price: "KSh 170,000.00", url: "#product-5kw-solar-inverter", image: "img/SC102-PRO-6200.jpg" },
+            { title: "Smart Water Level Controller", description: "Advanced controller for precise water management and automation.", price: "KSh 122,750.00", url: "#product-water-level-controller", image: "img/pool.jpg" },
+            { title: "Water Filtration System", description: "High-quality water purification system for clean and safe water.", price: "KSh 210,000.00", url: "#product-water-filtration", image: "img/pumpa.jpg" },
+            { title: "8.75KVA Hybrid Solar Inverter", description: "Hybrid inverter for versatile energy needs, supporting solar and grid.", price: "KSh 170,000.00", url: "#product-hybrid-inverter", image: "img/250L.jpg" },
+            { title: "7.5KVA Silent Heat Pump", description: "Quiet and efficient heat pump for residential water heating.", price: "KSh 122,750.00", url: "#product-silent-heat-pump", image: "img/pool-1.jpg" },
+            { title: "Variable Speed Water Pump", description: "Adjustable speed pump for optimized water flow and energy savings.", price: "KSh 50,000.00 - KSh 210,000.00", url: "#product-variable-pump", image: "img/img-600x400-5.jpg" },
+            { title: "Solar PV Disconnect 1000VDC", description: "Safety disconnect for solar systems, ensuring secure operation.", price: "KSh 5,800.00", url: "#product-pv-disconnect", image: "img/solar.jpg" },
+            { title: "Borehole Services", description: "Professional borehole drilling and maintenance for reliable water supply.", price: "", url: "#services-borehole", image: "img/product-2.jpg" },
+            { title: "Water Pumps", description: "Wide range of water pumping solutions for residential and industrial use.", price: "", url: "#services-water-pumps", image: "img/1.5W2B-45DC.jpg" },
+            { title: "Solar Solutions", description: "Sustainable solar energy systems for homes and businesses.", price: "", url: "#services-solar", image: "img/solar.jpg" },
+            { title: "Water Treatment", description: "Advanced water purification services for safe and clean water.", price: "", url: "#services-water-treatment", image: "img/pumpa.jpg" },
+            { title: "Power Generators", description: "Reliable backup power solutions for uninterrupted energy supply.", price: "", url: "#services-generators", image: "img/SC102-PRO-6200.jpg" },
+            { title: "Steel Tanks & Towers", description: "Durable water storage solutions for long-term reliability.", price: "", url: "#services-tanks-towers", image: "img/250L.jpg" }
+        ];
+
+        const searchBox = document.querySelector('.search-box');
+        const searchResults = document.querySelector('.search-results');
+        const clearSearch = document.querySelector('.clear-search');
+        const modal = document.querySelector('#searchModal');
+        const modalClose = document.querySelector('#modalClose');
+        const modalImage = document.querySelector('#modalImage');
+        const modalTitle = document.querySelector('#modalTitle');
+        const modalDescription = document.querySelector('#modalDescription');
+        const modalPrice = document.querySelector('#modalPrice');
+        const modalLink = document.querySelector('#modalLink');
+
+        searchBox.addEventListener('input', () => {
+            const query = searchBox.value.trim().toLowerCase();
+            searchResults.innerHTML = '';
+            clearSearch.classList.toggle('active', query.length > 0);
+
+            if (query.length === 0) {
+                searchResults.classList.remove('active');
+                return;
+            }
+
+            const filteredResults = searchData.filter(item =>
+                item.title.toLowerCase().includes(query) ||
+                item.description.toLowerCase().includes(query)
+            );
+
+            if (filteredResults.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">No results found</div>';
+                searchResults.classList.add('active');
+                return;
+            }
+
+            filteredResults.forEach(item => {
+                const resultItem = document.createElement('a');
+                resultItem.href = '#';
+                resultItem.textContent = item.title + (item.price ? ` - ${item.price}` : '');
+                resultItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modalImage.style.backgroundImage = `url(${item.image})`;
+                    modalTitle.textContent = item.title;
+                    modalDescription.textContent = item.description;
+                    modalPrice.textContent = item.price || 'Contact for pricing';
+                    modalLink.href = item.url;
+                    modal.classList.add('active');
+                    searchResults.classList.remove('active');
+                });
+                searchResults.appendChild(resultItem);
+            });
+
+            searchResults.classList.add('active');
+        });
+
+        clearSearch.addEventListener('click', () => {
+            searchBox.value = '';
+            searchResults.innerHTML = '';
+            searchResults.classList.remove('active');
+            clearSearch.classList.remove('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchBox.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        searchBox.addEventListener('focus', () => {
+            if (searchBox.value.trim().length > 0) {
+                searchResults.classList.add('active');
+            }
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Cart Functionality
+        const cartButtons = document.querySelectorAll('.btn-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const cartNotification = document.querySelector('#cartNotification');
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCount.textContent = cartItems.length;
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+        }
+
+        cartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const product = button.dataset.product;
+                const price = parseFloat(button.dataset.price);
+                cartItems.push({ product, price });
+                updateCartCount();
+                cartNotification.style.display = 'block';
+                setTimeout(() => {
+                    cartNotification.style.display = 'none';
+                }, 3000);
+            });
+        });
+
+        window.addEventListener('load', () => {
+            updateCartCount();
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 1500);
+            }
+        });
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('#hamburgerMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+        const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+
+        if (hamburger && mobileNav && mobileNavOverlay) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('open');
+                mobileNavOverlay.classList.toggle('show');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                mobileNavOverlay.classList.remove('show');
+            });
+        }
+
+        if (dropdownToggle && mobileSubmenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Project Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

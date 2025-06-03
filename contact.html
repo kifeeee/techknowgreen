@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact TechKnowGreen for sustainable water and solar solutions in Kenya. Reach us via phone, email, or our contact form.">
+    <meta name="keywords" content="TechKnowGreen, sustainable solutions, water pumps, solar solutions, heat pumps, Kenya, contact">
+    <meta name="robots" content="index, follow">
+    <title>Contact Us - TechKnowGreen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* Contact Section Styles */
+        .contact {
+            padding: 60px 5%;
+            background: #f9fafb;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-hero {
+            position: relative;
+            background: url('img/feature-sustainability.jpg') center/cover no-repeat;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        }
+
+        .contact-hero .container {
+            position: relative;
+            color: #fff;
+        }
+
+        .contact-hero-title {
+            font-size: clamp(28px, 6vw, 36px);
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-hero-subtitle {
+            font-size: clamp(16px, 3vw, 18px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact .section-title {
+            font-size: clamp(28px, 5vw, 32px);
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 50px;
+        }
+
+        .contact-form {
+            flex: 2;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: #0ebbee;
+            box-shadow: 0 0 6px rgba(14, 187, 238, 0.2);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form select {
+            appearance: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%231f2937" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            font-size: 16px;
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(90deg, #077a9a, #055f7b);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form .success-message {
+            display: none;
+            padding: 12px;
+            background: #ecfeff;
+            color: #0ea5e9;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .contact-form .success-message .dismiss-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            color: #0ea5e9;
+        }
+
+        .error-message {
+            color: #e3342f;
+            font-size: 13px;
+            margin-top: -10px;
+            display: none;
+        }
+
+        .contact-info {
+            flex: 1;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #4b5563;
+            margin-bottom: 12px;
+        }
+
+        .contact-info li i {
+            font-size: 18px;
+            color: #0ebbee;
+            margin-right: 12px;
+        }
+
+        .contact-info li a {
+            color: #0ebbee;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info li a:hover {
+            color: #077a9a;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-social a {
+            font-size: 20px;
+            color: #0ebbee;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-social a:hover {
+            color: #077a9a;
+            transform: translateY(-2px);
+        }
+
+        .contact-map {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .contact-map h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Accessibility */
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus,
+        .contact-form button:focus,
+        .contact-social a:focus {
+            outline: 2px solid #0ebbee;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 1200px) {
+            .contact .container {
+                max-width: 1200px;
+            }
+            .contact-wrapper {
+                gap: 3rem;
+            }
+            .contact-hero-title {
+                font-size: 40px;
+            }
+            .contact-hero-subtitle {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .contact-hero {
+                height: 200px;
+            }
+            .contact-hero-title {
+                font-size: 32px;
+            }
+            .contact-hero-subtitle {
+                font-size: 16px;
+            }
+            .contact-wrapper {
+                flex-direction: column;
+            }
+            .contact-form,
+            .contact-info {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 40px 3%;
+            }
+            .contact-hero {
+                height: 180px;
+            }
+            .contact-hero-title {
+                font-size: 28px;
+            }
+            .contact-hero-subtitle {
+                font-size: 14px;
+            }
+            .contact .section-title {
+                font-size: 28px;
+            }
+            .contact-form h3,
+            .contact-info h3 {
+                font-size: 20px;
+            }
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form select,
+            .contact-form button {
+                font-size: 14px;
+            }
+            .contact-info li {
+                font-size: 14px;
+            }
+            .contact-map iframe {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact {
+                padding: 30px 3%;
+            }
+            .contact-hero {
+                height: 160px;
+            }
+            .contact-hero-title {
+                font-size: 24px;
+            }
+            .contact-hero-subtitle {
+                font-size: 13px;
+            }
+            .contact .section-title {
+                font-size: 24px;
+            }
+            .contact-form,
+            .contact-info {
+                padding: 20px;
+            }
+            .contact-form h3,
+            .contact-info h3 {
+                font-size: 18px;
+            }
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form select,
+            .contact-form button {
+                font-size: 13px;
+            }
+            .contact-info li {
+                font-size: 13px;
+            }
+            .contact-social a {
+                font-size: 18px;
+            }
+            .contact-map h3 {
+                font-size: 22px;
+            }
+            .contact-map iframe {
+                height: 250px;
+            }
+        }
+        /* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Floating Animation */
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Loader Styles */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    visibility: visible;
+}
+
+.loader-wrapper.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loader div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #0ebbee;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loader div:nth-child(1) {
+    left: 8px;
+    animation: loader1 0.6s infinite;
+}
+
+.loader div:nth-child(2) {
+    left: 8px;
+    animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(3) {
+    left: 32px;
+    animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(4) {
+    left: 56px;
+    animation: loader3 0.6s infinite;
+}
+
+@keyframes loader1 {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+@keyframes loader3 {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+
+@keyframes loader2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(24px, 0); }
+}
+
+.loader-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -120px);
+    color: #fff;
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Topbar Styles */
+.topbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info a {
+    color: #0ebbee;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #3395f0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0ebbee;
+    transform: scale(1.2);
+}
+
+/* Header Styles */
+.main-header {
+    background-color: #000;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo h1 {
+    color: #fff;
+    font-size: clamp(24px, 5vw, 28px);
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+}
+
+.main-nav a,
+.main-nav .dropdown > a {
+    color: white;
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.main-nav a::after {
+    content: "•";
+    color: #0ebbee;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.main-nav a:last-child::after {
+    content: "";
+}
+
+.main-nav a:hover {
+    color: #0ebbee;
+}
+
+.nav-highlight {
+    color: #3395f0 !important;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 15px;
+    display: block;
+    border-bottom: 1px solid #333;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #0ebbee;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    margin-left: 20px;
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+.search-box {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-box:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(14, 187, 238, 0.5);
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Mobile Navigation */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 102;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    background-color: #111;
+    z-index: 101;
+    padding: 80px 20px 20px;
+    transition: left 0.4s ease;
+    pointer-events: none;
+}
+
+.mobile-nav.open {
+    left: 0;
+    pointer-events: auto;
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.mobile-nav-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-nav a {
+    display: block;
+    color: white;
+    padding: 15px 40px 15px 10px;
+    border-bottom: 1px solid #222;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.mobile-nav a:hover {
+    background-color: #0ebbee;
+}
+
+.mobile-dropdown > a {
+    position: relative;
+}
+
+.mobile-dropdown > a::after {
+    content: "+";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.mobile-submenu {
+    display: none;
+    background-color: #1a1a1a;
+}
+
+.mobile-submenu.open {
+    display: block;
+}
+
+.mobile-submenu a {
+    padding-left: 30px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+    color: #ccc;
+    padding: 60px 5% 30px;
+    position: relative;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.footer-logo h2 {
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-about p {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #0ebbee;
+    transform: scale(1.2);
+}
+
+.footer-title {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: #0ebbee;
+    border-radius: 2px;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+    list-style: none;
+    font-size: 15px;
+}
+
+.footer-links a {
+    color: #ccc;
+    position: relative;
+    padding-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::before {
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 12px;
+    color: #0ebbee;
+}
+
+.footer-links a:hover {
+    color: #0ebbee;
+}
+
+.footer-contact li {
+    margin-bottom: 15px;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    font-size: 15px;
+    color: #ddd;
+}
+
+.footer-contact i {
+    color: #0ebbee;
+    margin-right: 10px;
+    font-size: 16px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.footer-contact a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #0ebbee;
+}
+
+.footer-newsletter {
+    margin-top: 20px;
+}
+
+.footer-newsletter input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+    font-size: 14px;
+    background: #222;
+    color: #fff;
+}
+
+.footer-newsletter button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #0ebbee;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+    background-color: #0a93b9;
+}
+
+.copyright {
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    background: #000000;
+    color: #aaa;
+    width: 100%;
+}
+
+.copyright a {
+    color: #0ebbee;
+    font-weight: 500;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+/* Floating Buttons */
+.chat-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #1e4bef;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 90px;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    font-weight: bold;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: #0ebbee;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+/* Media Queries */
+@media (min-width: 1025px) {
+    .main-header {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        margin: 0;
+    }
+    .main-header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        display: none;
+    }
+    .main-header {
+        padding: 10px 2%;
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .logo {
+        flex: 1;
+        text-align: center;
+        order: 2;
+        margin: 0 auto;
+    }
+    .logo h1 {
+        font-size: 24px;
+    }
+    .main-nav {
+        display: none;
+    }
+    .hamburger-menu {
+        display: flex;
+        order: 1;
+        position: fixed;
+        top: 20px;
+        left: 15px;
+        z-index: 102;
+    }
+    .search-container {
+        order: 3;
+        margin-left: 0;
+        width: 100%;
+        max-width: 200px;
+    }
+    .search-box {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 20px;
+    }
+    .search-container {
+        max-width: 150px;
+    }
+    .chat-btn,
+    .whatsapp-btn {
+        transform: scale(0.8);
+    }
+    .whatsapp-btn {
+        left: 70px;
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+            TECH<span style="color: #0ebbee;">KNOW</span>GREEN
+        </div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo">
+            <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+                <a href="service.html" class="nav-highlight">SERVICES</a>
+                <div class="dropdown-content">
+                    <a href="heatpump.html">HEAT PUMPS</a>
+                    <a href="service.html">WATER PUMPS</a>
+                    <a href="service.html">SOLAR SOLUTIONS</a>
+                    <a href="service.html">WATER PURIFICATION</a>
+                    <a href="service.html">TRAINING</a>
+                    <a href="service.html">CONSULTATION</a>
+                </div>
+            </div>
+            <a href="projects.html">PROJECTS</a>
+            <a href="shop.html">OUR SHOP</a>
+            <a href="news.html">NEWS</a>
+            <a href="contact.html" class="nav-highlight">CONTACT</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search products..." aria-label="Search products">
+            <button class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle nav-highlight">SERVICES</a>
+            <div class="mobile-submenu">
+                <a href="heatpump.html">HEAT PUMPS</a>
+                <a href="service.html">WATER PUMPS</a>
+                <a href="service.html">SOLAR SOLUTIONS</a>
+                <a href="service.html">WATER PURIFICATION</a>
+                <a href="service.html">TRAINING</a>
+                <a href="service.html">CONSULTATION</a>
+            </div>
+        </div>
+        <a href="projects.html">PROJECTS</a>
+        <a href="shop.html">OUR SHOP</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html" class="nav-highlight">CONTACT</a>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact" role="region" aria-labelledby="contact-title">
+        <div class="contact-hero" style="background-image: url('img/feature.jpg'), linear-gradient(#f9fafb, #f9fafb)">
+            <div class="container">
+                <h2 class="contact-hero-title" data-aos="fade-down">Get in Touch with TechKnowGreen</h2>
+                <p class="contact-hero-subtitle" data-aos="fade-up" data-aos-delay="100">We're here to help you with sustainable water and energy solutions.</p>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="section-title" id="contact-title" data-aos="fade-up">Contact Us</h2>
+            <div class="contact-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-form">
+                    <h3 data-aos="fade-right">Send Us a Message</h3>
+                    <form id="contactForm" data-aos="fade-up" data-aos-delay="200">
+                        <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" aria-describedby="name-error">
+                        <div class="error-message" id="name-error">Please enter a valid name.</div>
+                        <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" aria-describedby="email-error">
+                        <div class="error-message" id="email-error">Please enter a valid email address.</div>
+                        <input type="tel" name="phone" placeholder="Your Phone Number" required aria-label="Your Phone Number" aria-describedby="phone-error">
+                        <div class="error-message" id="phone-error">Please enter a valid phone number.</div>
+                        <select name="service" required aria-label="Select Service" aria-describedby="service-error">
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="heat-pump">Heat Pump Installation</option>
+                            <option value="solar">Solar Solutions</option>
+                            <option value="water">Water Pumps</option>
+                            <option value="purification">Water Purification</option>
+                            <option value="training">Training</option>
+                            <option value="consultation">Consultation</option>
+                        </select>
+                        <div class="error-message" id="service-error">Please select a service.</div>
+                        <textarea name="message" placeholder="Your Message" required aria-label="Your Message" aria-describedby="message-error"></textarea>
+                        <div class="error-message" id="message-error">Please enter a message.</div>
+                        <button type="submit" class="float">Submit</button>
+                        <div class="success-message" id="successMessage" aria-live="polite">
+                            Thank you! Your message has been sent successfully.
+                            <button class="dismiss-btn" aria-label="Dismiss success message">✖</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3 data-aos="fade-left">Our Contact Details</h3>
+                    <ul data-aos="fade-up" data-aos-delay="300">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa, Kenya</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254707077709">(+254) 707-077-709</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:30am-5pm, Sat: 8:30am-1pm</li>
+                    </ul>
+                    <div class="contact-social" data-aos="fade-up" data-aos-delay="400">
+                        <a href="https://facebook.com/techknowgreen" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/techknowgreen" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/techknowgreen" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/techknowgreen" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+254710220398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map" data-aos="fade-up" data-aos-delay="500">
+                <h3>Find Us</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.9741359732257!2d39.66353211475383!3d-4.061865297143563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012e78f8b2d7b%3A0x2a76e41a0c0e5e8a!2sAmal%20Plaza!5e0!3m2!1sen!2ske!4v1666781234567!5m2!1sen!2ske" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" aria-label="Map showing TechKnowGreen location at AMAL Plaza, Mombasa"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                    </div>
+                    <p>At TechKnowGreen, we deliver sustainable solutions like heat pumps and solar systems, helping you save energy and reduce emissions.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/techknowgreen" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/techknowgreen" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/techknowgreen" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/techknowgreen" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+254710220398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <form>
+                            <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Project Gallery</a></li>
+                        <li><a href="#">Offers</a></li>
+                        <li><a href="#">Write to Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254707077709">(+254) 707-077-709</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="#" class="chat-btn float" aria-label="Chat with us"><i class="fas fa-comment"></i></a>
+    <a href="https://wa.me/+254710220398" class="whatsapp-btn float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <div class="back-to-top float" aria-label="Back to top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TechKnowGreen",
+      "image": "https://techknowgreen.co.ke/img/logo.png",
+      "telephone": "+254707077709",
+      "email": "info@techknowgreen.co.ke",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AMAL Plaza, Links Rd",
+        "addressLocality": "Mombasa",
+        "addressCountry": "KE"
+      },
+      "url": "https://techknowgreen.co.ke",
+      "sameAs": [
+        "https://facebook.com/techknowgreen",
+        "https://twitter.com/techknowgreen",
+        "https://linkedin.com/company/techknowgreen",
+        "https://instagram.com/techknowgreen"
+      ]
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Hide Loader with Fallback
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 500);
+            }
+        }
+
+        // Fallback timeout to hide loader after 3 seconds
+        setTimeout(hideLoader, 3000);
+
+        // Hide loader on window load
+        window.addEventListener('load', hideLoader);
+
+        // Error handling for external resources
+        window.addEventListener('error', (e) => {
+            console.error('Resource failed to load:', e);
+            hideLoader(); // Hide loader if any resource fails
+        }, true);
+
+        // Initialize AOS with fallback
+        try {
+            AOS.init({ duration: 800, once: true });
+        } catch (e) {
+            console.warn('AOS failed to initialize:', e);
+        }
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('#hamburgerMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+        const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+        if (hamburger && mobileNav && mobileNavOverlay) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('open');
+                mobileNavOverlay.classList.toggle('show');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                mobileNavOverlay.classList.remove('show');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('open');
+                    mobileNavOverlay.classList.remove('show');
+                });
+            });
+        }
+
+        if (dropdownToggle && mobileSubmenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Contact Form Submission with Validation
+        const contactForm = document.querySelector('#contactForm');
+        const successMessage = document.querySelector('#successMessage');
+        const dismissBtn = document.querySelector('.dismiss-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Reset error messages
+                document.querySelectorAll('.error-message').forEach(error => error.style.display = 'none');
+
+                // Validate inputs
+                const name = contactForm.querySelector('input[name="name"]').value.trim();
+                const email = contactForm.querySelector('input[name="email"]').value.trim();
+                const phone = contactForm.querySelector('input[name="phone"]').value.trim();
+                const service = contactForm.querySelector('select[name="service"]').value;
+                const message = contactForm.querySelector('textarea[name="message"]').value.trim();
+
+                let isValid = true;
+
+                if (!name || name.length < 2) {
+                    document.getElementById('name-error').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('email-error').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!phone || !/^\+?\d{10,}$/.test(phone.replace(/\D/g, ''))) {
+                    document.getElementById('phone-error').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!service) {
+                    document.getElementById('service-error').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (!message || message.length < 10) {
+                    document.getElementById('message-error').style.display = 'block';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Simulate form submission
+                    setTimeout(() => {
+                        successMessage.style.display = 'block';
+                        contactForm.reset();
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    }, 1000);
+                }
+            });
+        }
+
+        if (dismissBtn) {
+            dismissBtn.addEventListener('click', () => {
+                successMessage.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

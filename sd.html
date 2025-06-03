@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechKnowGreen provides sustainable water and solar solutions in Kenya, including borehole drilling, solar panels, water pumps, and purification systems.">
+    <title>TECHKNOWGREEN - Sustainable Water & Energy Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .section-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .column {
+            flex: 1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .column-1 {
+            background-image: 
+                linear-gradient(to bottom, 
+                    transparent 0%, 
+                    transparent 40%, 
+                    rgba(0, 0, 0, 0.1) 60%, 
+                    rgba(0, 0, 0, 0.4) 80%, 
+                    rgba(0, 0, 0, 0.8) 100%
+                ), 
+                url('img/200l.jpg');
+        }
+
+        .column-2 {
+            background-image: 
+                linear-gradient(to bottom, 
+                    transparent 0%, 
+                    transparent 40%, 
+                    rgba(0, 0, 0, 0.1) 60%, 
+                    rgba(0, 0, 0, 0.4) 80%, 
+                    rgba(0, 0, 0, 0.8) 100%
+                ), 
+                url('img/1747941065_img-600x400-2.jpg');
+        }
+
+        .column-3 {
+            background-image: 
+                linear-gradient(to bottom, 
+                    transparent 0%, 
+                    transparent 40%, 
+                    rgba(0, 0, 0, 0.1) 60%, 
+                    rgba(0, 0, 0, 0.4) 80%, 
+                    rgba(0, 0, 0, 0.8) 100%
+                ), 
+                url('img/IMG_5402.jpg');
+        }
+
+        .column:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+        }
+
+        .column:hover .column-1,
+        .column:hover .column-2,
+        .column:hover .column-3 {
+            filter: brightness(1.1) contrast(1.05);
+        }
+
+        .content {
+            background: transparent;
+            backdrop-filter: blur(3px);
+            padding: 40px 30px;
+            color: white;
+            height: auto;
+            position: relative;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, 
+                rgba(0, 0, 0, 0.9) 0%, 
+                rgba(0, 0, 0, 0.7) 30%, 
+                rgba(0, 0, 0, 0.3) 60%, 
+                transparent 100%
+            );
+            z-index: -1;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .content h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #00bcd4;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-weight: 400;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #00bcd4;
+            background: rgba(0, 0, 0, 0.3);
+            color: #00bcd4;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            background-color: #00bcd4;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+
+        .cta-button::after {
+            content: ' >';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(5px);
+        }
+
+        .column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .column:hover::before {
+            opacity: 1;
+        }
+
+        .column:hover {
+            filter: brightness(1.05) saturate(1.1);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .column {
+                height: 350px;
+            }
+
+            .content {
+                padding: 30px 25px;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+                line-height: 1.5;
+            }
+
+            .cta-button {
+                font-size: 0.8rem;
+                padding: 10px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-container {
+                padding: 0 10px;
+            }
+
+            .column {
+                height: 320px;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+            }
+
+            .content p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+            TECH<span style="color: #0ebbee;">KNOW</span>GREEN
+        </div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Top bar with contact info -->
+    <div class="topbar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> Hotline: <a href="tel:+254707077709">(+254)707-077-709</a></span>
+                <span><i class="fas fa-envelope"></i> Email us: <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></span>
+                <span><i class="fas fa-clock"></i> Mon to Fri: 8:30am-5pm</span>
+                <span><i class="fas fa-clock"></i> Sat: 8:30am-1pm</span>
+            </div>
+            <div class="social-icons">
+                <a href="https://facebook.com/techknowgreen" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/techknowgreen" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/company/techknowgreen" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/techknowgreen" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/254710220398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://x.com/techknowgreen" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header with Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+            </div>
+            <nav class="main-nav">
+                <a href="#" class="nav-highlight">HOME</a>
+                <a href="about.html">ABOUT US</a>
+                <div class="dropdown">
+                    <a href="service.html">SERVICES</a>
+                    <div class="dropdown-content">
+                        <a href="service.html#heat-pumps">HEAT PUMPS</a>
+                        <a href="service.html#water-pumps">WATER PUMPS</a>
+                        <a href="service.html#solar-solutions">SOLAR SOLUTIONS</a>
+                        <a href="service.html#water-purification">WATER PURIFICATION</a>
+                        <a href="service.html#training">TRAINING</a>
+                        <a href="service.html#consultation">CONSULTATION</a>
+                    </div>
+                </div>
+                <a href="projects.html">PROJECTS</a>
+                <a href="shop.html">OUR SHOP</a>
+                <a href="news.html">NEWS</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search products..." aria-label="Search products">
+                <button class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+                <div class="search-results"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#" class="nav-highlight">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle">OUR OFFERS</a>
+            <div class="mobile-submenu">
+                <a href="service.html#heat-pumps">HEAT PUMPS</a>
+                <a href="service.html#water-pumps">WATER PUMPS</a>
+                <a href="service.html#solar-solutions">SOLAR SOLUTIONS</a>
+                <a href="service.html#water-purification">WATER PURIFICATION</a>
+                <a href="service.html#training">TRAINING</a>
+                <a href="service.html#consultation">CONSULTATION</a>
+            </div>
+        </div>
+        <a href="projects.html">PROJECTS</a>
+        <a href="shop.html">OUR SHOP</a>
+        <a href="news.html">NEWS</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose" aria-label="Close">×</span>
+            <div class="modal-image" id="modalImage"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <p class="modal-price" id="modalPrice"></p>
+            <a href="shop.html" class="modal-link" id="modalLink">View Details</a>
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div class="quote-modal" id="quoteModal">
+        <div class="quote-modal-content">
+            <span class="modal-close" id="quoteModalClose" aria-label="Close">×</span>
+            <h2>Request a Quote</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required aria-label="Your Name">
+                <input type="tel" placeholder="Phone Number" required aria-label="Phone Number">
+                <select required aria-label="Select Service">
+                    <option value="" disabled selected>Select Service</option>
+                    <option value="solar">Solar Solutions</option>
+                    <option value="water">Water Pumps</option>
+                    <option value="heat-pump">Heat Pump Installation</option>
+                    <option value="treatment">Water Purification</option>
+                    <option value="training">Training</option>
+                    <option value="other">Other</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">TECHKNOWGREEN</h1>
+            <p class="hero-subtitle">Your ultimate partner for sustainable water and energy solutions with cutting-edge green technology.</p>
+            <a href="#services" class="btn-primary">Explore Solutions</a>
+            <a href="shop.html" class="btn-primary">Visit Our Shop</a>
+        </div>
+    </section>
+
+    <!-- Three-Column Section -->
+    <section class="section-container">
+        <div class="column column-1">
+            <div class="content">
+                <h2>Who We Are</h2>
+                <p>TechKnowGreen is a premier solutions provider based in Nairobi specializing in integrated water and energy services designed to meet the growing needs of individuals, businesses, and communities across the region.</p>
+                <a href="about.html" class="cta-button">Learn More</a>
+            </div>
+        </div>
+        <div class="column column-2">
+            <div class="content">
+                <h2>What We Do</h2>
+                <p>We are committed to quality, innovation, and sustainability. Whether you need borehole services, water storage solutions, or energy-efficient power systems, we ensure timely delivery and unmatched customer service.</p>
+                <a href="service.html" class="cta-button">Find Out</a>
+            </div>
+        </div>
+        <div class="column column-3">
+            <div class="content">
+                <h2>Visit Our Shop</h2>
+                <p>Welcome to your one-stop destination for high-quality water and energy equipment. Whether you're looking for pumps, generators, solar systems, or water treatment accessories, we've got you covered.</p>
+                <a href="shop.html" class="cta-button">Visit Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card" data-aos="zoom-in">
+                    <i class="fas fa-tint"></i>
+                    <h3>Water Purification</h3>
+                    <p>Professional drilling and maintenance for reliable water supply.</p>
+                    <a href="service.html#water-purification" class="btn-cart">Read More</a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-water"></i>
+                    <h3>Smart Water Pumps</h3>
+                    <p>Efficient and durable pumps for various applications.</p>
+                    <a href="service.html#water-pumps" class="btn-cart">Read More</a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Solar Solutions</h3>
+                    <p>Harness solar energy for sustainable power.</p>
+                    <a href="service.html#solar-solutions" class="btn-cart">Read More</a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-filter"></i>
+                    <h3>Water Treatment</h3>
+                    <p>Advanced purification for safe and clean water.</p>
+                    <a href="service.html#water-treatment" class="btn-cart">Read More</a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Training</h3>
+                    <p>Empowering communities with practical skills in renewable energy and water solutions.</p>
+                    <a href="service.html#training" class="btn-cart">Read More</a>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h3>Heat Pump Installation</h3>
+                    <p>Efficient heating and cooling solutions for homes and businesses.</p>
+                    <a href="service.html#heat-pumps" class="btn-cart">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>Our solutions are designed to minimize environmental impact.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-tools"></i>
+                    <h3>Expertise</h3>
+                    <p>Over 10 years of experience in green technology.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support</h3>
+                    <p>24/7 customer support for all your needs.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Quality</h3>
+                    <p>Certified products with industry-leading warranties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Counters -->
+    <section class="counters" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="counter-grid">
+                <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 data-count="50">0</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 data-count="100000">0</h3>
+                    <p>Liters Pumped</p>
+                </div>
+                <div class="counter-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3 data-count="1000">0</h3>
+                    <p>kW Solar Generated</p>
+                </div>
+                <div class="counter-item" data-aos="fade-up" data-aos-delay="400">
+                    <h3 data-count="100">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products animate__animated animate__fadeIn">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="water-pumps">Water Pumps</button>
+            <button class="category-btn" data-category="inverters">Inverters</button>
+            <button class="category-btn" data-category="vfds">VFDs</button>
+            <button class="category-btn" data-category="solar-products">Solar Products</button>
+        </div>
+        <div class="product-grid">
+            <div class="product-card" data-category="inverters">
+                <div class="product-image" style="background-image: url('img/product-2.jpg');"></div>
+                <div class="product-details">
+                    <h3 class="product-title">10KVA Solar Inverter System</h3>
+                    <p class="product-price">KSh 198,000.00</p>
+                    <a href="shop.html#product-10kva-solar-inverter" class="btn-cart">ADD TO CART <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="product-card" data-category="vfds">
+                <div class="product-image" style="background-image: url('img/sinovo.jpg');"></div>
+                <div class="product-details">
+                    <h3 class="product-title">5HP Variable Frequency Drive</h3>
+                    <p class="product-price">KSh 225,220.00</p>
+                    <a href="shop.html#product-5hp-vfd" class="btn-cart">ADD TO CART <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="product-card" data-category="water-pumps">
+                <div class="product-image" style="background-image: url('img/1.5W2B-45DC.jpg');"></div>
+                <div class="product-details">
+                    <h3 class="product-title">Smart Water Pump</h3>
+                    <p class="product-price">KSh 85,500.00</p>
+                    <a href="shop.html#product-smart-pump" class="btn-cart">ADD TO CART <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="product-card" data-category="solar-products">
+                <div class="product-image" style="background-image: url('img/solar.jpg');"></div>
+                <div class="product-details">
+                    <h3 class="product-title">Solar Panel</h3>
+                    <p class="product-price">KSh 150,000.00</p>
+                    <a href="shop.html#product-solar-panel" class="btn-cart">ADD TO CART <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="product-card" data-category="water-pumps">
+                <div class="product-image" style="background-image: url('img/evms-k.jpg');"></div>
+                <div class="product-details">
+                    <h3 class="product-title">Multi-Stage Pump</h3>
+                    <p class="product-price">KSh 85,500.00</p>
+                    <a href="shop.html#product-multi-stage-pump" class="btn-cart">ADD TO CART <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="product-card" data-category="inverters">
+                <div class="product-image" style="background-image: url('img/SC102-PRO-6200.jpg');"></div>
+                <div class="product-details">
+                    <h3 class="product-title">5KW Solar Inverter</h3>
+                    <p class="product-price">KSh 170,000.00</p>
+                    <a href="shop.html#product-5kw-solar-inverter" class="btn-cart">ADD TO CART <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="projects" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-category="solar" data-aos="zoom-in">
+                    <div class="project-image" style="background-image: url('img/IMG_5453.jpg');"></div>
+                    <div class="project-details">
+                        <h3 class="project-title">Solar Installation in Sudan</h3>
+                        <p class="project-description">Installed a 50kW solar system for a rural community, providing clean energy to 200 households.</p>
+                        <a href="projects.html#solar-sudan" class="btn-cart">Read More</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="water" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-image" style="background-image: url('img/gallery-60.jpg');"></div>
+                    <div class="project-details">
+                        <h3 class="project-title">Water Purification in Mtwapa</h3>
+                        <p class="project-description">Installed an advanced water purification system to provide clean, safe drinking water to a rural community.</p>
+                        <a href="projects.html#water-mtwapa" class="btn-cart">Read More</a>
+                    </div>
+                </div>
+                <div class="project-card" data-category="solar" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-image" style="background-image: url('img/kingfish-4.jpg');"></div>
+                    <div class="project-details">
+                        <h3 class="project-title">Pump Installation, Kingfish</h3>
+                        <p class="project-description">Installed a high-efficiency water pump system to ensure consistent water supply for agricultural and domestic use in Kingfish.</p>
+                        <a href="projects.html#pump-kingfish" class="btn-cart">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <a href="projects.html" class="btn-primary">View All Projects</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p>"TechKnowGreen transformed our farm with a solar-powered water pump. Reliable and cost-effective!"</p>
+                    <h4>John Mwangi, Farmer</h4>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p>"Their borehole services were professional and timely. We now have clean water for our community."</p>
+                    <h4>Aisha Omar, Community Leader</h4>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p>"The solar installation by TechKnowGreen has reduced our energy bills significantly. Highly recommend!"</p>
+                    <h4>Jane Wanjiku, Business Owner</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="news" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div class="news-grid">
+                <div class="news-card" data-aos="zoom-in">
+                    <div class="news-image" style="background-image: url('img/news1.jpg');"></div>
+                    <div class="news-details">
+                        <h3 class="news-title">Now Available: Advanced Heat Pump Systems</h3>
+                        <p class="news-excerpt">We're excited to introduce the latest generation of high-efficiency heat pumps—now available at TechKnowGreen.</p>
+                        <a href="news.html#heat-pumps" class="btn-cart">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="news-image" style="background-image: url('img/lamu.jpg');"></div>
+                    <div class="news-details">
+                        <h3 class="news-title">Community Water Project Completed</h3>
+                        <p class="news-excerpt">Our latest borehole project in Kitui provides clean water to over 1,000 residents.</p>
+                        <a href="news.html#kitui-project" class="btn-cart">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="news-image" style="background-image: url('img/charlse.jpg');"></div>
+                    <div class="news-details">
+                        <h3 class="news-title">TechKnowGreen Wins Green Award</h3>
+                        <p class="news-excerpt">We were recognized for our contributions to sustainable technology in Kenya.</p>
+                        <a href="news.html#green-award" class="btn-cart">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Ready to Go Green?</h2>
+            <a href="contact.html" class="btn-primary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Our Certifications</h2>
+            <div class="badges-grid">
+                <div class="badge"><img src="img/iso.png" alt="ISO 9001 Certification" loading="lazy"></div>
+                <div class="badge"><img src="img/kebs.png" alt="KEBS Certification" loading="lazy"></div>
+                <div class="badge"><img src="img/gok.png" alt="Government of Kenya Partner" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                    </div>
+                    <p>At TechKnowGreen, we integrate sustainable practices into every project. From harnessing solar energy for water pumping to comprehensive energy solutions, we help you adopt environmentally friendly approaches to water and energy management.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/techknowgreen" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/techknowgreen" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com/company/techknowgreen" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/techknowgreen" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/254710220398" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <div class="footer-newsletter">
+                        <form>
+                            <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="return-policy.html">Our Return Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="projects.html">Our Project Gallery</a></li>
+                        <li><a href="service.html">Our Offers</a></li>
+                        <li><a href="contact.html">Write to Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact-info">
+                    <h3 class="footer-title">Contact Information</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+254711312029">(+254) 711-312-029</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                        <li><i class="fas fa-lock"></i> <a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="contact.html" class="chat-btn" aria-label="Chat with us"><i class="fas fa-comment"></i></a>
+    <a href="https://wa.me/254710220398" class="whatsapp-btn" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <a href="#" class="quote-btn btn-primary" id="openQuoteModal" style="position: fixed; bottom: 15px; right: 60px;">Get Quote</a>
+    <div class="cart-btn">
+        <i class="fas fa-shopping-cart" aria-label="Shopping cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+    <div class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TechKnowGreen",
+      "image": "https://techknowgreen.co.ke/img/logo.png",
+      "telephone": "+254707077709",
+      "email": "info@techknowgreen.co.ke",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "AMAL Plaza, Links Rd",
+        "addressLocality": "Mombasa",
+        "addressCountry": "KE"
+      },
+      "url": "https://techknowgreen.co.ke",
+      "sameAs": [
+        "https://facebook.com/techknowgreen",
+        "https://twitter.com/techknowgreen",
+        "https://linkedin.com/company/techknowgreen",
+        "https://instagram.com/techknowgreen"
+      ]
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Cart Functionality
+        const cartButtons = document.querySelectorAll('.btn-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let cartItems = parseInt(localStorage.getItem('cartItems') || '0');
+
+        cartCount.textContent = cartItems;
+        cartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                cartItems++;
+                cartCount.textContent = cartItems;
+                localStorage.setItem('cartItems', cartItems);
+                // Navigate to product page (href is already set)
+                window.location.href = button.getAttribute('href');
+            });
+        });
+
+        // Search Functionality
+        const searchData = [
+            { title: "10KVA Solar Inverter System", description: "High-capacity solar inverter for reliable energy conversion.", price: "KSh 198,000.00", url: "shop.html#product-10kva-solar-inverter", image: "img/product-2.jpg" },
+            { title: "Smart Water Pump", description: "Efficient water pump for various applications.", price: "KSh 85,500.00", url: "shop.html#product-smart-pump", image: "img/1.5W2B-45DC.jpg" },
+            { title: "Solar Panel", description: "High-efficiency solar panel for renewable energy.", price: "KSh 150,000.00", url: "shop.html#product-solar-panel", image: "img/solar.jpg" },
+            { title: "5KW Solar Inverter", description: "Mid-range inverter for efficient solar systems.", price: "KSh 170,000.00", url: "shop.html#product-5kw-solar-inverter", image: "img/SC102-PRO-6200.jpg" }
+        ];
+
+        const searchBox = document.querySelector('.search-box');
+        const searchResults = document.querySelector('.search-results');
+        const modal = document.querySelector('#searchModal');
+        const modalClose = document.querySelector('#modalClose');
+        const modalImage = document.querySelector('#modalImage');
+        const modalTitle = document.querySelector('#modalTitle');
+        const modalDescription = document.querySelector('#modalDescription');
+        const modalPrice = document.querySelector('#modalPrice');
+        const modalLink = document.querySelector('#modalLink');
+
+        searchBox.addEventListener('input', () => {
+            const query = searchBox.value.trim().toLowerCase();
+            searchResults.innerHTML = '';
+
+            if (query.length === 0) {
+                searchResults.classList.remove('active');
+                return;
+            }
+
+            const filteredResults = searchData.filter(item =>
+                item.title.toLowerCase().includes(query) ||
+                item.description.toLowerCase().includes(query)
+            );
+
+            if (filteredResults.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">No results found</div>';
+                searchResults.classList.add('active');
+                return;
+            }
+
+            filteredResults.forEach(item => {
+                const resultItem = document.createElement('a');
+                resultItem.href = '#';
+                resultItem.textContent = item.title + (item.price ? ` - ${item.price}` : '');
+                resultItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modalImage.style.backgroundImage = `url(${item.image})`;
+                    modalTitle.textContent = item.title;
+                    modalDescription.textContent = item.description;
+                    modalPrice.textContent = item.price || 'Contact for pricing';
+                    modalLink.href = item.url;
+                    modal.classList.add('active');
+                    searchResults.classList.remove('active');
+                });
+                searchResults.appendChild(resultItem);
+            });
+
+            searchResults.classList.add('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchBox.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        searchBox.addEventListener('focus', () => {
+            if (searchBox.value.trim().length > 0) {
+                searchResults.classList.add('active');
+            }
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Quote Modal
+        const quoteModal = document.querySelector('#quoteModal');
+        const openQuoteModal = document.querySelector('#openQuoteModal');
+        const quoteModalClose = document.querySelector('#quoteModalClose');
+
+        openQuoteModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            quoteModal.classList.add('active');
+        });
+
+        quoteModalClose.addEventListener('click', () => {
+            quoteModal.classList.remove('active');
+        });
+
+        quoteModal.addEventListener('click', (e) => {
+            if (e.target === quoteModal) {
+                quoteModal.classList.remove('active');
+            }
+        });
+
+        // Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('#hamburgerMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+        const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+
+        if (hamburger && mobileNav && mobileNavOverlay) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('open');
+                mobileNavOverlay.classList.toggle('show');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                mobileNavOverlay.classList.remove('show');
+            });
+        }
+
+        if (dropdownToggle && mobileSubmenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated Counters
+        const counters = document.querySelectorAll('.counter-item h3');
+        const animateCounter = (el, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                el.textContent = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            };
+            requestAnimationFrame(step);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    counters.forEach(counter => {
+                        const end = parseInt(counter.getAttribute('data-count'));
+                        animateCounter(counter, 0, end, 2000);
+                    });
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.counters'));
+
+        // Product Category Filter
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const selectedCategory = button.getAttribute('data-category');
+                productCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                        card.style.display = 'block';
+                        card.classList.add('animate__animated', 'animate__fadeIn');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('animate__animated', 'animate__fadeIn');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

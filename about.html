@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About TechKnowGreen: Learn about our mission to provide sustainable solar, water, and energy solutions in Kenya.">
+    <title>About Us - TECHKNOWGREEN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            margin-left: 20px;
+            flex-grow: 1;
+            max-width: 250px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 8px 15px;
+            border-radius: 20px 0 0 20px;
+            border: none;
+            width: 100%;
+            font-size: 14px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(14, 187, 238, 0.5);
+        }
+
+        .search-button {
+            padding: 8px 15px;
+            border-radius: 0 20px 20px 0;
+            border: none;
+            background: #0ebbee;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: #0a93b9;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            display: none;
+        }
+
+        .clear-search.active {
+            display: block;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            padding: 10px 0;
+            margin-top: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-results a {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            transition: background 0.3s;
+        }
+
+        .search-results a:hover {
+            background: #f5f5f5;
+        }
+
+        .no-results {
+            padding: 8px 15px;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #ff0000;
+            transform: scale(1.2);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .modal-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .modal-price {
+            font-size: 20px;
+            color: #0ebbee;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .modal-link {
+            display: inline-block;
+            background: #0ebbee;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .modal-link:hover {
+            background: #0a93b9;
+            transform: scale(1.05);
+        }
+
+        /* Header Styles */
+        .topbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #0ebbee;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a:hover {
+            color: #0ebbee;
+            transform: scale(1.2);
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Navigation */
+        .main-header {
+            background-color: #000;
+            padding: 10px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .logo {
+            flex: 0 0 auto;
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 28px;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a,
+        .main-nav .dropdown>a {
+            color: white;
+            font-weight: 500;
+            padding: 10px 0;
+            position: relative;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .main-nav a::after {
+            content: "•";
+            color: #0ebbee;
+            margin-left: 20px;
+            display: inline-block;
+        }
+
+        .main-nav a:last-child::after {
+            content: "";
+        }
+
+        .main-nav a:hover {
+            color: #0ebbee;
+        }
+
+        .nav-highlight {
+            color: #3395f0 !important;
+        }
+
+        /* About Us Section Styles */
+        .about-hero {
+            background-image: url('img/feature.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            max-width: 90%;
+        }
+
+        .about-hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-hero-subtitle {
+            font-size: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-main {
+            padding: 60px 5%;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #0ebbee;
+            margin: 15px auto 0;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            color: #0ebbee;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .team-section {
+            padding: 60px 5%;
+            background-color: #f1f1f1;
+            width: 100%;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-details {
+            padding: 20px;
+        }
+
+        .team-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .team-role {
+            font-size: 16px;
+            color: #0ebbee;
+            margin-bottom: 10px;
+        }
+
+        .team-bio {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .certifications-section {
+            padding: 60px 5%;
+            width: 100%;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .certification-item {
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-icon {
+            font-size: 40px;
+            color: #0ebbee;
+            margin-bottom: 10px;
+        }
+
+        .certification-text {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #0ebbee, #077a9a);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #0a93b9, #055f7a);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+            color: #ccc;
+            padding: 60px 5% 30px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-logo h2::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #0ebbee;
+        }
+
+        .footer-about p {
+            line-height: 1.8;
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #ffffff;
+            font-size: 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #0ebbee;
+            transform: scale(1.2);
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .footer-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #0ebbee;
+            border-radius: 2px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            list-style: none;
+            font-size: 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            position: relative;
+            padding-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a::before {
+            content: "\f054";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 12px;
+            color: #0ebbee;
+        }
+
+        .footer-links a:hover {
+            color: #0ebbee;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            font-size: 15px;
+            color: #ddd;
+        }
+
+        .footer-contact i {
+            color: #0ebbee;
+            margin-right: 10px;
+            font-size: 16px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .footer-contact a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #0ebbee;
+        }
+
+        .footer-newsletter {
+            margin-top: 20px;
+        }
+
+        .footer-newsletter input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 70%;
+            font-size: 14px;
+            background: #222;
+            color: #fff;
+        }
+
+        .footer-newsletter button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #0ebbee;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-newsletter button:hover {
+            background-color: #0a93b9;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            background: #000000;
+            color: #aaa;
+            width: 100%;
+        }
+
+        .copyright a {
+            color: #0ebbee;
+            font-weight: 500;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Floating Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #1e4bef;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 90px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            font-weight: bold;
+        }
+
+        /* Shopping Cart */
+        .cart-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #293859;
+            color: rgb(255, 255, 255);
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #222;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 15px;
+            display: block;
+            border-bottom: 1px solid #333;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0ebbee;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #0ebbee;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        /* Mobile Navigation */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 102;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger-menu span {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.4s;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: #111;
+            z-index: 101;
+            padding: 80px 20px 20px;
+            transition: left 0.4s ease;
+            pointer-events: none;
+        }
+
+        .mobile-nav.open {
+            left: 0;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-nav-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: white;
+            padding: 15px 40px 15px 10px;
+            border-bottom: 1px solid #222;
+            font-weight: 500;
+        }
+
+        .mobile-nav a:hover {
+            background-color: #0ebbee;
+        }
+
+        .mobile-dropdown>a {
+            position: relative;
+        }
+
+        .mobile-dropdown>a::after {
+            content: "+";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+
+        .mobile-submenu {
+            display: none;
+            background-color: #1a1a1a;
+        }
+
+        .mobile-submenu.open {
+            display: block;
+        }
+
+        .mobile-submenu a {
+            padding-left: 30px;
+        }
+
+        /* Loader Styles */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .loader div {
+            position: absolute;
+            top: 33px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #0ebbee;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+        }
+
+        .loader div:nth-child(1) {
+            left: 8px;
+            animation: loader1 0.6s infinite;
+        }
+
+        .loader div:nth-child(2) {
+            left: 8px;
+            animation: loader2 0.6s infinite;
+        }
+
+        .loader div:nth-child(3) {
+            left: 32px;
+            animation: loader2 0.6s infinite;
+        }
+
+        .loader div:nth-child(4) {
+            left: 56px;
+            animation: loader3 0.6s infinite;
+        }
+
+        @keyframes loader1 {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes loader3 {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes loader2 {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(24px, 0);
+            }
+        }
+
+        .loader-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -120px);
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* New Section Styles */
+        .values-section, .sustainability-section, .community-section, .vision-section {
+            padding: 60px 5%;
+            width: 100%;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 40px;
+            color: #0ebbee;
+            margin-bottom: 15px;
+        }
+
+        .value-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .value-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .sustainability-content, .community-content, .vision-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .sustainability-content p, .community-content p, .vision-content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries */
+        @media (min-width: 1025px) {
+            .main-header {
+                flex-wrap: nowrap;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .main-header {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar {
+                display: none;
+            }
+
+            .main-header {
+                padding: 10px 2%;
+                position: relative;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .logo {
+                flex: 1;
+                text-align: center;
+                order: 2;
+                margin: 0 auto;
+            }
+
+            .logo h1 {
+                font-size: 24px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                order: 1;
+                position: fixed;
+                top: 20px;
+                left: 15px;
+                z-index: 102;
+            }
+
+            .search-container {
+                order: 3;
+                margin-left: 0;
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .about-hero {
+                height: 300px;
+            }
+
+            .about-hero-title {
+                font-size: 32px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .about-main,
+            .team-section,
+            .certifications-section,
+            .values-section,
+            .sustainability-section,
+            .community-section,
+            .vision-section {
+                padding: 40px 3%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-logo h2 {
+                font-size: 28px;
+            }
+
+            .footer-title {
+                font-size: 20px;
+            }
+
+            .footer-about p,
+            .footer-links li,
+            .footer-contact li {
+                font-size: 14px;
+            }
+
+            .footer-newsletter input {
+                width: 65%;
+            }
+
+            .btn-primary {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .modal-title {
+                font-size: 20px;
+            }
+
+            .modal-description {
+                font-size: 14px;
+            }
+
+            .modal-price {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero {
+                height: 250px;
+            }
+
+            .about-hero-title {
+                font-size: 28px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 16px;
+            }
+
+            .about-main,
+            .team-section,
+            .certifications-section,
+            .values-section,
+            .sustainability-section,
+            .community-section,
+            .vision-section {
+                padding: 30px 3%;
+            }
+
+            .team-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-btn,
+            .whatsapp-btn,
+            .cart-btn {
+                transform: scale(0.8);
+            }
+
+            .whatsapp-btn {
+                left: 70px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            .footer-logo h2 {
+                font-size: 24px;
+            }
+
+            .footer-title {
+                font-size: 18px;
+            }
+
+            .footer-about p,
+            .footer-links li,
+            .footer-contact li {
+                font-size: 13px;
+            }
+
+            .footer-newsletter input {
+                width: 60%;
+                padding: 8px 10px;
+            }
+
+            .footer-newsletter button {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            .footer-social a {
+                font-size: 18px;
+            }
+
+            .modal-image {
+                height: 150px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .search-container {
+                max-width: 150px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .stat-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader-logo">
+            TECH<span style="color: #0ebbee;">KNOW</span>GREEN
+        </div>
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Top bar with contact info -->
+    <div class="topbar">
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> Hotline: <a href="tel:+254707077709">(+254)707-077-709</a></span>
+            <span><i class="fas fa-envelope"></i> Email us: <a
+                    href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></span>
+            <span><i class="fas fa-clock"></i> Mon to Fri: 8:30am-5pm</span>
+            <span><i class="fas fa-clock"></i> Sat: 8:30am-1pm</span>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Header with Navigation -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <h1>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h1>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">HOME</a>
+            <a href="#" class="nav-highlight">ABOUT US</a>
+            <div class="dropdown">
+                <a href="#">OUR OFFERS</a>
+                <div class="dropdown-content">
+                    <a href="#">BOREHOLE SERVICES</a>
+                    <a href="#">WATER PUMPS</a>
+                    <a href="#">SOLAR SOLUTIONS</a>
+                    <a href="#">WATER TREATMENT</a>
+                    <a href="#">POWER GENERATORS</a>
+                    <a href="#">STEEL TANKS & TOWERS</a>
+                </div>
+            </div>
+            <a href="#">PROJECTS</a>
+            <a href="index.html#products">OUR SHOP</a>
+            <a href="#">NEWS</a>
+            <a href="#">CONTACT</a>
+        </nav>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search products...">
+            <button class="clear-search" title="Clear search"><i class="fas fa-times"></i></button>
+            <button class="search-button"><i class="fas fa-search"></i></button>
+            <div class="search-results"></div>
+        </div>
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">HOME</a>
+        <a href="#" class="nav-highlight">ABOUT US</a>
+        <div class="mobile-dropdown">
+            <a href="#" class="mobile-dropdown-toggle">OUR OFFERS</a>
+            <div class="mobile-submenu">
+                <a href="#">BOREHOLE SERVICES</a>
+                <a href="#">WATER PUMPS</a>
+                <a href="#">SOLAR SOLUTIONS</a>
+                <a href="#">WATER TREATMENT</a>
+                <a href="#">POWER GENERATORS</a>
+                <a href="#">STEEL TANKS & TOWERS</a>
+            </div>
+        </div>
+        <a href="#">PROJECTS</a>
+        <a href="index.html#products">OUR SHOP</a>
+        <a href="#">NEWS</a>
+        <a href="#">CONTACT</a>
+    </nav>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">×</span>
+            <div class="modal-image" id="modalImage"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <p class="modal-price" id="modalPrice"></p>
+            <a href="#" class="modal-link" id="modalLink">View Details</a>
+        </div>
+    </div>
+
+    <!-- About Us Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1 class="about-hero-title">About TechKnowGreen</h1>
+            <p class="about-hero-subtitle">Empowering Kenya with sustainable water and energy solutions since 2020.</p>
+        </div>
+    </section>
+
+    <!-- About Us Main Content -->
+    <section class="about-main">
+        <h2 class="section-title">Our Story</h2>
+        <div class="about-content">
+            <p>Founded in 2020, TechKnowGreen is a leading provider of sustainable water and energy solutions in Kenya. Based in Mombasa, we specialize in solar power systems, borehole services, water pumps, water treatment, and energy-efficient technologies. Our mission is to empower communities and businesses with eco-friendly solutions that reduce environmental impact and promote long-term sustainability.</p>
+            <p>Our journey began with a vision to address the pressing need for reliable and sustainable water and energy solutions in Kenya. Over the years, we have grown from a small startup to a trusted name in the industry, completing over 500 projects across the country. From residential solar installations to large-scale borehole systems, our team brings a wealth of expertise and a commitment to excellence to every project.</p>
+            <p>At TechKnowGreen, we believe in harnessing the power of innovation to create a greener future. Our solutions are designed to meet the unique needs of our clients, whether they are rural households seeking clean water or businesses aiming to reduce their carbon footprint. We pride ourselves on our ability to deliver high-quality, customized solutions that combine cutting-edge technology with environmental stewardship.</p>
+            <p>Our success is built on a foundation of collaboration, integrity, and a relentless pursuit of quality. With a team of highly skilled engineers, technicians, and sustainability experts, we ensure that every project meets the highest industry standards. Our partnerships with leading global manufacturers allow us to offer state-of-the-art equipment, ensuring reliability and efficiency for our clients.</p>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-text">Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-text">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,000+</div>
+                    <div class="stat-text">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-text">Industry Awards</div>
+                </div>
+            </div>
+            <a href="#contact" class="btn-primary">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="values-section">
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <i class="fas fa-leaf value-icon"></i>
+                <h3 class="value-title">Sustainability</h3>
+                <p class="value-description">We are committed to promoting environmentally friendly solutions that preserve natural resources for future generations.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-lightbulb value-icon"></i>
+                <h3 class="value-title">Innovation</h3>
+                <p class="value-description">We embrace cutting-edge technology to deliver efficient and reliable solutions tailored to our clients' needs.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-users value-icon"></i>
+                <h3 class="value-title">Community</h3>
+                <p class="value-description">We believe in empowering communities through access to clean water and sustainable energy, fostering growth and development.</p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-shield-alt value-icon"></i>
+                <h3 class="value-title">Integrity</h3>
+                <p class="value-description">We operate with transparency and accountability, building trust with our clients and partners.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-image" style="background-image: url('img/team1.jpg');"></div>
+                <div class="team-details">
+                    <h3 class="team-name">Francisco Pol</h3>
+                    <p class="team-role">CEO & Founder</p>
+                    <p class="team-bio">Francisco leads TechKnowGreen with a commitment to sustainable energy and innovative solutions across Kenya. With over 15 years of experience in renewable energy, he has spearheaded numerous projects that have transformed communities.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-image" style="background-image: url('img/charlse.jpg');"></div>
+                <div class="team-details">
+                    <h3 class="team-name">Charlse</h3>
+                    <p class="team-role">Technical Team Lead</p>
+                    <p class="team-bio">Charlse oversees our technical operations, driving solar installations and smart pump integration with precision. His expertise ensures that every project is executed flawlessly.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-image" style="background-image: url('img/team3.jpg');"></div>
+                <div class="team-details">
+                    <h3 class="team-name">Shery Koech</h3>
+                    <p class="team-role">Technical Advisor</p>
+                    <p class="team-bio">Shery provides strategic technical guidance to ensure our projects meet the highest standards of efficiency and reliability. Her insights are critical to our success in delivering sustainable solutions.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="team-image" style="background-image: url('img/team4.jpg');"></div>
+                <div class="team-details">
+                    <h3 class="team-name">Daddius Tom</h3>
+                    <p class="team-role">Sustainability Consultant</p>
+                    <p class="team-bio">Daddius Tom is a well informed accountant in our company, who provides accounting service and tracks our records.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Commitment Section -->
+    <section class="sustainability-section">
+        <h2 class="section-title">Our Commitment to Sustainability</h2>
+        <div class="sustainability-content">
+            <p>At TechKnowGreen, sustainability is at the heart of everything we do. We are dedicated to reducing carbon footprints and promoting renewable energy sources across Kenya. Our solar power systems and water management solutions are designed to minimize environmental impact while maximizing efficiency.</p>
+            <p>We actively work to combat climate change by integrating renewable energy into our projects. From solar-powered water pumps to energy-efficient generators, our solutions help reduce reliance on fossil fuels. Additionally, our water treatment systems ensure that communities have access to clean, safe water without harming the environment.</p>
+            <p>Our commitment extends beyond our projects. We partner with local and international organizations to promote sustainable practices and educate communities about the benefits of renewable energy. By investing in research and development, we continuously improve our offerings to align with global sustainability goals.</p>
+            <a href="#contact" class="btn-primary">Learn More About Our Sustainability Efforts</a>
+        </div>
+    </section>
+
+    <!-- Community Engagement Section -->
+    <section class="community-section">
+        <h2 class="section-title">Community Engagement</h2>
+        <div class="community-content">
+            <p>TechKnowGreen is more than a business; we are a partner in community development. Since our inception, we have worked closely with communities across Kenya to provide access to clean water and reliable energy. Our projects have empowered schools, healthcare facilities, and rural households by delivering sustainable solutions that improve quality of life.</p>
+            <p>We believe in giving back to the communities we serve. Through our community outreach programs, we offer training on sustainable practices, provide job opportunities, and support local initiatives. Our borehole projects, for example, have brought clean water to over 50 rural communities, reducing waterborne diseases and improving living standards.</p>
+            <p>We also collaborate with local schools to promote STEM education, inspiring the next generation of innovators in renewable energy and water management. By fostering partnerships with community leaders, we ensure that our projects are tailored to meet local needs and create lasting impact.</p>
+            <a href="#contact" class="btn-primary">Get Involved with Our Community Programs</a>
+        </div>
+    </section>
+
+    <!-- Vision for the Future Section -->
+    <section class="vision-section">
+        <h2 class="section-title">Our Vision for the Future</h2>
+        <div class="vision-content">
+            <p>Our vision at TechKnowGreen is to create a future where every Kenyan has access to clean, sustainable energy and water. We aim to be the leading provider of renewable energy solutions in East Africa by 2030, expanding our reach to transform more communities and businesses.</p>
+            <p>We are committed to driving innovation in the renewable energy sector. Our research and development team is exploring new technologies, such as advanced solar panels and smart water management systems, to enhance the efficiency and affordability of our solutions. We also plan to expand our training programs to empower more local technicians and engineers.</p>
+            <p>By fostering partnerships with government agencies, NGOs, and international organizations, we hope to scale our impact and contribute to Kenya’s sustainable development goals. Together, we can build a greener, more resilient future for all.</p>
+            <a href="#contact" class="btn-primary">Join Us in Shaping the Future</a>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <h2 class="section-title">Our Certifications</h2>
+        <div class="certifications-grid">
+            <div class="certification-item">
+                <i class="fas fa-certificate certification-icon"></i>
+                <p class="certification-text">Kenya Renewable Energy Association</p>
+            </div>
+            <div class="certification-item">
+                <i class="fas fa-shield-alt certification-icon"></i>
+                <p class="certification-text">ISO 9001:2015 Certified</p>
+            </div>
+            <div class="certification-item">
+                <i class="fas fa-award certification-icon"></i>
+                <p class="certification-text">Energy Management Award 2023</p>
+            </div>
+            <div class="certification-item">
+                <i class="fas fa-leaf certification-icon"></i>
+                <p class="certification-text">Green Business Certification</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <h2>TECH<span style="color: #0ebbee;">KNOW</span>GREEN</h2>
+                </div>
+                <p>At TechKnowGreen, we integrate sustainable practices into every project. From harnessing solar energy
+                    for water pumping to comprehensive energy solutions, we help you adopt environmentally friendly
+                    approaches to water and energy management.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="footer-newsletter">
+                    <form>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-quick-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Our Return Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Our Project Gallery</a></li>
+                    <li><a href="#">Our Offers</a></li>
+                    <li><a href="#">Write to Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact-info">
+                <h3 class="footer-title">Contact Information</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> AMAL Plaza, Links Rd, Mombasa</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+254711312029">(+254) 711-312-029</a></li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="tel:+254710220398">(+254) 710-220-398</a></li>
+                    <li><i class="fas fa-envelope"></i> <a
+                            href="mailto:info@techknowgreen.co.ke">info@techknowgreen.co.ke</a></li>
+                    <li><i class="fas fa-globe"></i> <a href="https://techknowgreen.co.ke">techknowgreen.co.ke</a></li>
+                    <li><i class="fas fa-lock"></i> <a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 <a href="#">TechKnowGreen</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/+254707077709" class="chat-btn"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/+254707077709" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+    <div class="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+    <div class="back-to-top"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">Item added to cart!</div>
+
+    <script>
+        // Search Functionality
+        const searchData = [
+            { title: "10KVA Solar Inverter System", description: "High-capacity solar inverter for reliable energy conversion and management.", price: "KSh 198,000.00", url: "#product-10kva-solar-inverter", image: "img/product-2.jpg" },
+            { title: "5HP Variable Frequency Drive", description: "Efficient drive for precise motor control in industrial applications.", price: "KSh 225,220.00", url: "#product-5hp-vfd", image: "img/sinovo.jpg" },
+            { title: "High Efficiency Heat Pump", description: "Energy-saving heat pump for water heating with minimal environmental impact.", price: "KSh 315,000.00", url: "#product-heat-pump", image: "img/250L.jpg" },
+            { title: "3KVA Solar Panel Kit", description: "Complete solar panel kit for small-scale renewable energy setups.", price: "KSh 150,000.00", url: "#product-3kva-solar-kit", image: "img/solar.jpg" },
+            { title: "Vacuum Water Pump System", description: "Robust water pump for various applications, ensuring high efficiency.", price: "KSh 85,500.00", url: "#product-vacuum-pump", image: "img/1.5W2B-45DC.jpg" },
+            { title: "Smart Water Level Sensor Kit", description: "Automated water level monitoring for tanks and reservoirs.", price: "KSh 45,750.00", url: "#product-water-level-sensor", image: "img/level.jpg" },
+            { title: "5KW Solar Inverter", description: "Mid-range inverter for efficient solar energy systems.", price: "KSh 170,000.00", url: "#product-5kw-solar-inverter", image: "img/SC102-PRO-6200.jpg" },
+            { title: "Smart Water Level Controller", description: "Advanced controller for precise water management and automation.", price: "KSh 122,750.00", url: "#product-water-level-controller", image: "img/pool.jpg" },
+            { title: "Water Filtration System", description: "High-quality water purification system for clean and safe water.", price: "KSh 210,000.00", url: "#product-water-filtration", image: "img/pumpa.jpg" },
+            { title: "8.75KVA Hybrid Solar Inverter", description: "Hybrid inverter for versatile energy needs, supporting solar and grid.", price: "KSh 170,000.00", url: "#product-hybrid-inverter", image: "img/250L.jpg" },
+            { title: "7.5KVA Silent Heat Pump", description: "Quiet and efficient heat pump for residential water heating.", price: "KSh 122,750.00", url: "#product-silent-heat-pump", image: "img/pool-1.jpg" },
+            { title: "Variable Speed Water Pump", description: "Adjustable speed pump for optimized water flow and energy savings.", price: "KSh 50,000.00 - KSh 210,000.00", url: "#product-variable-pump", image: "img/img-600x400-5.jpg" },
+            { title: "Solar PV Disconnect 1000VDC", description: "Safety disconnect for solar systems, ensuring secure operation.", price: "KSh 5,800.00", url: "#product-pv-disconnect", image: "img/solar.jpg" },
+            { title: "Borehole Services", description: "Professional borehole drilling and maintenance for reliable water supply.", price: "", url: "#services-borehole", image: "img/product-2.jpg" },
+            { title: "Water Pumps", description: "Wide range of water pumping solutions for residential and industrial use.", price: "", url: "#services-water-pumps", image: "img/1.5W2B-45DC.jpg" },
+            { title: "Solar Solutions", description: "Sustainable solar energy systems for homes and businesses.", price: "", url: "#services-solar", image: "img/solar.jpg" },
+            { title: "Water Treatment", description: "Advanced water purification services for safe and clean water.", price: "", url: "#services-water-treatment", image: "img/pumpa.jpg" },
+            { title: "Power Generators", description: "Reliable backup power solutions for uninterrupted energy supply.", price: "", url: "#services-generators", image: "img/SC102-PRO-6200.jpg" },
+            { title: "Steel Tanks & Towers", description: "Durable water storage solutions for long-term reliability.", price: "", url: "#services-tanks-towers", image: "img/250L.jpg" }
+        ];
+
+        const searchBox = document.querySelector('.search-box');
+        const searchResults = document.querySelector('.search-results');
+        const clearSearch = document.querySelector('.clear-search');
+        const modal = document.querySelector('#searchModal');
+        const modalClose = document.querySelector('#modalClose');
+        const modalImage = document.querySelector('#modalImage');
+        const modalTitle = document.querySelector('#modalTitle');
+        const modalDescription = document.querySelector('#modalDescription');
+        const modalPrice = document.querySelector('#modalPrice');
+        const modalLink = document.querySelector('#modalLink');
+
+        searchBox.addEventListener('input', () => {
+            const query = searchBox.value.trim().toLowerCase();
+            searchResults.innerHTML = '';
+            clearSearch.classList.toggle('active', query.length > 0);
+
+            if (query.length === 0) {
+                searchResults.classList.remove('active');
+                return;
+            }
+
+            const filteredResults = searchData.filter(item =>
+                item.title.toLowerCase().includes(query) ||
+                item.description.toLowerCase().includes(query)
+            );
+
+            if (filteredResults.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">No results found</div>';
+                searchResults.classList.add('active');
+                return;
+            }
+
+            filteredResults.forEach(item => {
+                const resultItem = document.createElement('a');
+                resultItem.href = '#';
+                resultItem.textContent = item.title + (item.price ? ` - ${item.price}` : '');
+                resultItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modalImage.style.backgroundImage = `url(${item.image})`;
+                    modalTitle.textContent = item.title;
+                    modalDescription.textContent = item.description;
+                    modalPrice.textContent = item.price || 'Contact for pricing';
+                    modalLink.href = item.url;
+                    modal.classList.add('active');
+                    searchResults.classList.remove('active');
+                });
+                searchResults.appendChild(resultItem);
+            });
+
+            searchResults.classList.add('active');
+        });
+
+        clearSearch.addEventListener('click', () => {
+            searchBox.value = '';
+            searchResults.innerHTML = '';
+            searchResults.classList.remove('active');
+            clearSearch.classList.remove('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchBox.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        searchBox.addEventListener('focus', () => {
+            if (searchBox.value.trim().length > 0) {
+                searchResults.classList.add('active');
+            }
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Cart Functionality
+        const cartButtons = document.querySelectorAll('.btn-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const cartNotification = document.querySelector('#cartNotification');
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            cartCount.textContent = cartItems.length;
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+        }
+
+        cartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const product = button.dataset.product;
+                const price = parseFloat(button.dataset.price);
+                cartItems.push({ product, price });
+                updateCartCount();
+                cartNotification.style.display = 'block';
+                setTimeout(() => {
+                    cartNotification.style.display = 'none';
+                }, 3000);
+            });
+        });
+
+        window.addEventListener('load', () => {
+            updateCartCount();
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 1500);
+            }
+        });
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('#hamburgerMenu');
+        const mobileNav = document.querySelector('#mobileNav');
+        const mobileNavOverlay = document.querySelector('#mobileNavOverlay');
+        const dropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+
+        if (hamburger && mobileNav && mobileNavOverlay) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('open');
+                mobileNavOverlay.classList.toggle('show');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                mobileNavOverlay.classList.remove('show');
+            });
+        }
+
+        if (dropdownToggle && mobileSubmenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Back to Top
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
